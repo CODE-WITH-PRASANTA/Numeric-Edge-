@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Topbar — ForTradex premium utility bar
+   ========================================================================== */
+
+.Topbar {
+  --topbar-accent: #1a9c53;
+  --topbar-accent-dark: #0f7a3d;
+  --topbar-bg-start: #101314;
+  --topbar-bg-end: #06070a;
+  --topbar-border: rgba(255, 255, 255, 0.08);
+  --topbar-max-width: 1400px;
+
+  background: linear-gradient(90deg, var(--topbar-bg-start), var(--topbar-bg-end));
+  border-bottom: 1px solid var(--topbar-border);
+}
+
+.Topbar-container {
+  max-width: var(--topbar-max-width);
+  margin: 0 auto;
+  height: 46px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ============================
+   CONTACT (headset + phone)
+============================ */
+
+.Topbar-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: opacity 0.2s ease;
+}
+
+.Topbar-contact:hover {
+  opacity: 0.85;
+}
+
+.Topbar-contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--topbar-accent);
+  font-size: 1rem;
+  filter: drop-shadow(0 0 6px rgba(26, 156, 83, 0.55));
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.Topbar-contact:hover .Topbar-contact-icon {
+  filter: drop-shadow(0 0 10px rgba(26, 156, 83, 0.85));
+  transform: scale(1.08);
+}
+
+.Topbar-contact-number {
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ============================
+   ACTION BUTTONS
+============================ */
+
+.Topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.Topbar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.Topbar-btn--filled {
+  background: linear-gradient(135deg, var(--topbar-accent), var(--topbar-accent-dark));
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(26, 156, 83, 0.35);
+}
+
+.Topbar-btn--filled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(26, 156, 83, 0.5);
+}
+
+.Topbar-btn--outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+}
+
+.Topbar-btn--outline:hover {
+  background: #ffffff;
+  color: #101314;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+@media (max-width: 900px) {
+  .Topbar-container {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .Topbar-container {
+    height: auto;
+    padding: 10px 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .Topbar-contact-number {
+    font-size: 0.88rem;
+  }
+
+  .Topbar-btn {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .Topbar-contact-number {
+    display: none;
+  }
+
+  .Topbar-actions {
+    gap: 8px;
+  }
+}

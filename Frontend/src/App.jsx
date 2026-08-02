@@ -1,14 +1,31 @@
-import { useState } from 'react'
-import './App.css'
+import React from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
 
+import Footer from "./components/Footer/Footer";
+import Navbar from "./Components/Navbar/Navbar";
+import Topbar from "./Components/Topbar/Topbar";
+
+  
+
+
+const App = () => {
   return (
-   <>
-   
-   </>
-  )
-}
+    <BrowserRouter>
+    <Topbar/>
+     <Navbar/>
 
-export default App
+      <Routes>
+      
+      </Routes>
+
+     <Footer/>
+    </BrowserRouter>
+  );
+};
+
+export default App;
