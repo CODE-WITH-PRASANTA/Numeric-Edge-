@@ -9,6 +9,7 @@ import {
 import Footer from "./components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import Topbar from "./Components/Topbar/Topbar";
+import Home from "./Pages/Home/Home";
 
   
 
@@ -20,7 +21,7 @@ const App = () => {
      <Navbar/>
 
       <Routes>
-      
+      <Route path="/" element={<Home/>}/>
       </Routes>
 
      <Footer/>

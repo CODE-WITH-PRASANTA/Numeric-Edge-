@@ -1,0 +1,204 @@
+:root {
+  --green-bg: #23854b;
+  --text-white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.85);
+  --btn-bg: #ffffff;
+  --btn-text-dark: #111111;
+  --golden-hover: #d4af37; /* Golden color for hover effect */
+  --golden-hover-bg: #fffbf0;
+}
+
+/* Main Section Styling */
+.download-app-section {
+  width: 100%;
+  background-color: var(--green-bg);
+  /* World map outline background pattern */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding: 80px 20px;
+  position: relative;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.download-app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  position: relative;
+}
+
+/* Floating RTL Side Badge */
+.floating-rtl-badge {
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+/* Devices Image Column */
+.devices-image-wrapper {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.devices-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Right Content Column */
+.download-content {
+  flex: 1;
+  color: var(--text-white);
+}
+
+.download-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-bottom: 20px;
+}
+
+.download-title {
+  font-size: 44px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.download-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 35px 0;
+  max-width: 500px;
+}
+
+/* Store Buttons Row */
+.store-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  background-color: var(--btn-bg);
+  color: var(--btn-text-dark);
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  /* Smooth Golden Hover Transition */
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.store-icon {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  color: var(--btn-text-dark);
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.store-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-subtitle {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #555555;
+  text-transform: uppercase;
+  transition: color 0.35s ease;
+}
+
+.store-title {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--btn-text-dark);
+  transition: color 0.35s ease;
+}
+
+/* --- Golden Hover Effect on Store Buttons --- */
+.store-btn:hover {
+  background-color: #ffffff;
+  border-color: var(--golden-hover);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+  transform: translateY(-3px);
+}
+
+.store-btn:hover .store-icon,
+.store-btn:hover .store-title,
+.store-btn:hover .store-subtitle {
+  color: var(--golden-hover); /* Changes icon and text to Golden on Hover */
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 992px) {
+  .download-app-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .download-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .store-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .download-title {
+    font-size: 32px;
+  }
+
+  .download-description {
+    font-size: 14px;
+  }
+
+  .store-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .store-btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .floating-rtl-badge {
+    display: none;
+  }
+}

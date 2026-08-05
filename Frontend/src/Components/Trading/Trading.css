@@ -1,0 +1,217 @@
+.trading-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.trading-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.top-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid #23854b;
+  color: #23854b;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.main-heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+}
+
+/* Main Outer Card */
+.trading-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+/* Navigation Bar (Tabs) */
+.tabs-header {
+  display: flex;
+  background-color: #23854b;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 15px;
+  background-color: #23854b;
+  color: #ffffff;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-btn:last-child {
+  border-right: none;
+}
+
+.tab-icon {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.tab-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Selected Tab Style */
+.tab-btn.active {
+  background-color: #ffffff;
+  color: #23854b;
+}
+
+/* Hover Effect: Green Hover Effect on Unselected Option */
+.tab-btn:not(.active):hover {
+  background-color: #1e703f;
+}
+
+/* Tab Content Layout with Animation */
+.tab-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  gap: 40px;
+  /* Smooth Fade & Slide Animation when changing options */
+  animation: smoothFadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes smoothFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-left {
+  flex: 1;
+}
+
+.content-left h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.desc, .sub-desc {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #23854b;
+  color: #ffffff;
+  border: 1px solid #23854b;
+}
+
+.btn-primary:hover {
+  background-color: #1e703f;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #23854b;
+  border: 1px solid #23854b;
+}
+
+.btn-secondary:hover {
+  background-color: #23854b;
+  color: #ffffff;
+}
+
+.content-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.device-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 900px) {
+  .tabs-header {
+    flex-wrap: wrap;
+  }
+  
+  .tab-btn {
+    flex: 1 1 50%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .tab-content {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .main-heading {
+    font-size: 30px;
+  }
+
+  .content-left h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .tab-btn {
+    flex: 1 1 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
