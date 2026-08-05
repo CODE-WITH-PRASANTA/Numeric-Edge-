@@ -1,0 +1,111 @@
+/* ==========================================
+   Blog Details Breadcrumb Stylesheet
+   ========================================== */
+
+.Blogdetailsbreadcurm {
+  width: 100%;
+  background-color: #f6f8f7; /* Subtle off-white background */
+  
+  /* Increased top & bottom padding to increase container height */
+  padding: 130px 0; 
+  /* Ensures a consistent, spacious hero height */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 60px;
+}
+
+.Blogdetailsbreadcurm-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Title & Background Icon Container */
+.Blogdetailsbreadcurm-title-area {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+/* Rotating Money Background Icon */
+.Blogdetailsbreadcurm-bg-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  /* Scaled up icon slightly to fit the larger height */
+  font-size: 140px; 
+  color: #cde6d5; /* Light green accent color */
+  opacity: 0.85;
+  z-index: 1;
+  pointer-events: none;
+  
+  /* Continuous infinite rotation */
+  animation: rotateMoney 18s linear infinite;
+}
+
+.Blogdetailsbreadcurm-bg-icon svg {
+  display: block;
+}
+
+/* Continuous 360-Degree Rotation Keyframe */
+@keyframes rotateMoney {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Bold Main Title */
+.Blogdetailsbreadcurm-title {
+  position: relative;
+  z-index: 2; /* Keeps title clear and above rotating icon */
+  font-size: 48px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Breadcrumb Navigation Bar */
+.Blogdetailsbreadcurm-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555555;
+  margin-top: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.Blogdetailsbreadcurm-home {
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.Blogdetailsbreadcurm-home:hover {
+  color: #000000;
+}
+
+.Blogdetailsbreadcurm-separator {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #888888;
+}
+
+.Blogdetailsbreadcurm-current {
+  color: #222222;
+  font-weight: 600;
+}
