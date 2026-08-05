@@ -1,0 +1,419 @@
+/* Container & Base Styles */
+.Education-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.Education-container *,
+.Education-container *::before,
+.Education-container *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Header Section & Continuous Clockwise Rotating Shape
+   ========================================================================== */
+.Education-header {
+  position: relative;
+  text-align: center;
+  padding: 70px 20px 40px;
+  background-color: #fafafa;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Education-header-bg-shape {
+  position: absolute;
+  top: 15px;
+  width: 130px;
+  height: auto;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+  animation: Education-rotate-clockwise 20s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes Education-rotate-clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Education-title {
+  position: relative;
+  z-index: 2;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color: #0d0d0d;
+}
+
+.Education-breadcrumb {
+  position: relative;
+  z-index: 2;
+  font-size: 0.95rem;
+  color: #666666;
+  margin: 0;
+}
+
+.Education-breadcrumb-active {
+  color: #177e3c;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Main Section & Typography
+   ========================================================================== */
+.Education-main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.Education-badge-container {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.Education-badge {
+  display: inline-block;
+  background-color: #eaf6ed;
+  color: #177e3c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.Education-section-heading {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #111111;
+  margin: 0 0 35px 0;
+}
+
+/* ==========================================================================
+   Tab Navigation Buttons
+   ========================================================================== */
+.Education-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.Education-tabs {
+  display: inline-flex;
+  background-color: #177e3c;
+  padding: 6px;
+  border-radius: 50px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.Education-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.Education-tab-btn:hover {
+  background-color: #ffffff;
+  color: #177e3c;
+}
+
+.Education-tab-btn-active {
+  background-color: #ffffff !important;
+  color: #177e3c !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Grid, Flower Opening Animation & Hover (UPDATED SECTION)
+   ========================================================================== */
+.Education-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 60px;
+  /* Add perspective to the container for better 3D effect during opening */
+  perspective: 1000px; 
+}
+
+.Education-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  
+  /* Initial state: Hidden, small, and rotated */
+  opacity: 0;
+  transform: scale(0.6) rotateY(40deg) translateY(50px);
+  
+  /* Animation properties: Trigger the bloom animation */
+  animation-name: Education-flowerBloom;
+  animation-duration: 0.8s; /* Duration of one box opening */
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1); /* Ultra-smooth 'out' ease */
+  animation-fill-mode: forwards; /* Stay at the final animated state */
+}
+
+/* Flower Opening Keyframe Animation */
+@keyframes Education-flowerBloom {
+  0% {
+    opacity: 0;
+    /* Start from a central, small, and slightly angled state */
+    transform: scale(0.3) rotateY(40deg) translateY(50px);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    /* Final state: Full size, upright, and in place */
+    opacity: 1;
+    transform: scale(1) rotateY(0deg) translateY(0);
+  }
+}
+
+.Education-card-img-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.Education-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: center center;
+}
+
+/* Flower blooming effect on image hover */
+.Education-card:hover .Education-card-img {
+  transform: scale(1.12) rotate(2.5deg);
+}
+
+.Education-card-content {
+  padding: 18px 4px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Title hover color animation (Black to Green) */
+.Education-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.Education-card-title:hover {
+  color: #177e3c;
+}
+
+.Education-card-link {
+  color: #177e3c;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.Education-card-link:hover {
+  color: #0f5427;
+}
+
+/* ==========================================================================
+   Subscribe Banner & 50% Left / 50% Right Meeting Animation Button
+   ========================================================================== */
+.Education-subscribe-banner {
+  background-color: #177e3c;
+  border-radius: 16px;
+  padding: 35px 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-image: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 50%
+  );
+}
+
+.Education-subscribe-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+}
+
+.Education-subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1.2;
+}
+
+.Education-subscribe-input {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+/* Black to White 50/50 Meeting Fill Animation Button */
+.Education-subscribe-btn {
+  position: relative;
+  background-color: #121212;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.35s ease;
+}
+
+/* Left side 50% white fill */
+.Education-subscribe-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #ffffff;
+  transition: left 0.35s ease-out;
+  z-index: -1;
+}
+
+/* Right side 50% white fill */
+.Education-subscribe-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #ffffff;
+  transition: right 0.35s ease-out;
+  z-index: -1;
+}
+
+/* Hover effect meeting in center */
+.Education-subscribe-btn:hover {
+  color: #121212;
+}
+
+.Education-subscribe-btn:hover::before {
+  left: 0;
+}
+
+.Education-subscribe-btn:hover::after {
+  right: 0;
+}
+
+.Education-subscribe-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints for All Devices
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .Education-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .Education-subscribe-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .Education-subscribe-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Education-section-heading {
+    font-size: 1.8rem;
+  }
+
+  .Education-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .Education-tabs {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 8px;
+  }
+
+  .Education-tab-btn {
+    border-radius: 12px;
+  }
+
+  .Education-subscribe-form {
+    flex-direction: column;
+  }
+
+  .Education-subscribe-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .Education-title {
+    font-size: 2rem;
+  }
+
+  .Education-subscribe-title {
+    font-size: 1.4rem;
+  }
+}
