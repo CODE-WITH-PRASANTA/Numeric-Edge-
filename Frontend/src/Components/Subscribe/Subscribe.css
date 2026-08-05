@@ -1,0 +1,169 @@
+:root {
+  --green-bg: #23854b;
+  --black-btn: #121212;
+  --white-bg: #ffffff;
+  --text-white: #ffffff;
+  --text-dark: #121212;
+  --placeholder-color: #888888;
+}
+
+/* Outer Container */
+.subscribe-section {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Main Green Box */
+.subscribe-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--green-bg);
+  /* Candlestick chart watermark overlay matching reference image */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 12px;
+  padding: 35px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+/* Heading Styling */
+.subscribe-heading {
+  color: var(--text-white);
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+/* Form Layout */
+.subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  max-width: 650px;
+  justify-content: flex-end;
+}
+
+/* Input Wrapper & Field */
+.input-wrapper {
+  flex: 1;
+}
+
+.subscribe-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  outline: none;
+  font-size: 15px;
+  color: var(--text-dark);
+  background-color: var(--white-bg);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.subscribe-input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.subscribe-input:focus {
+  border-color: #000000;
+}
+
+/* Subscribe Button with Open-Type Black to White Hover Effect */
+.subscribe-btn {
+  position: relative;
+  height: 52px;
+  padding: 0 32px;
+  background-color: var(--black-btn);
+  color: var(--text-white);
+  border: 2px solid var(--black-btn);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  z-index: 1;
+  white-space: nowrap;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Pseudo-element for the expanding "Open Type" White Background */
+.subscribe-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white-bg);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover State: Text turns Black, Background opens to White */
+.subscribe-btn:hover {
+  color: var(--text-dark);
+  border-color: var(--white-bg);
+}
+
+.subscribe-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.arrow-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.subscribe-btn:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* --- Media Queries for Responsive Design --- */
+@media (max-width: 992px) {
+  .subscribe-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 25px;
+  }
+
+  .subscribe-heading {
+    white-space: normal;
+    font-size: 26px;
+  }
+
+  .subscribe-form {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .subscribe-form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .input-wrapper,
+  .subscribe-input,
+  .subscribe-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

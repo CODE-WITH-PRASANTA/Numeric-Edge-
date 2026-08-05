@@ -1,0 +1,81 @@
+/* Container & Section Styling */
+.brand-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40px 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-marquee-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  position: relative;
+  /* एडजेस पर सॉफ्ट फेडेड इफेक्ट */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.brand-track {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+  width: max-content;
+  /* Right to Left Motion Animation */
+  animation: moveRightToLeft 20s linear infinite;
+}
+
+/* माउस होवर करने पर स्लाइडर पॉज़ होगा */
+.brand-track:hover {
+  animation-play-state: paused;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Base Logo Style (Normal State) */
+.brand-logo {
+  height: 28px;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5) brightness(0.3);
+  /* Slow Transition (0.6 seconds) */
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+/* Slowly Light Green Color Hover Effect */
+.brand-item:hover .brand-logo {
+  filter: grayscale(0%) opacity(1) drop-shadow(0px 0px 8px rgba(32, 227, 107, 0.8)) sepia(100%) hue-rotate(85deg) saturate(300%);
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* Right to Left Movement Keyframes (0% से -50% की ओर) */
+@keyframes moveRightToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+  .brand-track {
+    gap: 40px;
+    animation-duration: 15s;
+  }
+  
+  .brand-logo {
+    height: 22px;
+    max-width: 100px;
+  }
+}

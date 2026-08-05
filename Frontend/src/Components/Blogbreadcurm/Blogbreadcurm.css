@@ -1,114 +1,106 @@
+/* Container section matching reference layout */
 .Blogbreadcurm {
-  position: relative;
   width: 100%;
-  padding: 80px 20px 70px;
-  background: linear-gradient(180deg, #f4f6f5 0%, #ffffff 40%, #ffffff 100%);
-  box-shadow: inset 0 20px 40px -20px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
+  background-color: #f4f6f5; /* Light subtle grey background from image */
+  padding: 90px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.Blogbreadcurm-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  height: 130px;
 }
 
-.Blogbreadcurm-wrapper {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-  z-index: 2;
-}
-
-/* Title Area */
+/* Title Area containing the spinning money icon and main heading */
 .Blogbreadcurm-title-area {
   position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Light green rotating icon positioned directly behind the text */
+.Blogbreadcurm-bg-icon {
+  position: absolute;
+  font-size: 110px;
+  color: #cde7d8; /* Light pastel green tint from design */
+  opacity: 0.85;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  pointer-events: none;
+  /* Smooth infinite rotation animation */
+  animation: rotateMoney 18s linear infinite;
 }
 
+/* Keyframes for continuous smooth 360° rotation */
+@keyframes rotateMoney {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Main Heading Typography */
 .Blogbreadcurm-title {
   position: relative;
   z-index: 2;
-  font-size: 52px;
-  font-weight: 800;
-  color: #14181f;
+  font-family: 'Playfair Display', 'Georgia', serif; /* Serif typography matching image */
+  font-size: 48px;
+  font-weight: 700;
+  color: #111111;
   margin: 0;
+  padding: 10px 0;
   letter-spacing: -0.5px;
 }
 
-/* Decorative rotating money icon behind the title */
-.Blogbreadcurm-bg-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 140px;
-  color: #7cb87c;
-  opacity: 0.35; /* increased from 0.12 */
-  z-index: 1;
-  pointer-events: none;
-  animation: rotateMoney 12s linear infinite;
-}
-
-@keyframes rotateMoney {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-/* Breadcrumb Navigation */
+/* Navigation & Separator Styling */
 .Blogbreadcurm-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  position: relative;
-  z-index: 2;
+  gap: 8px;
+  font-family: 'Georgia', serif;
+  font-size: 15px;
+  color: #555555;
+  margin-top: 4px;
 }
 
 .Blogbreadcurm-home {
-  color: #3a3f47;
+  color: #555555;
   text-decoration: none;
-  font-size: 17px;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .Blogbreadcurm-home:hover {
-  color: #14181f;
-  text-decoration: underline;
+  color: #000000;
 }
 
 .Blogbreadcurm-separator {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  color: #9aa0a6;
-  font-size: 16px;
+  font-size: 14px;
+  color: #777777;
 }
 
 .Blogbreadcurm-current {
-  color: #14181f;
-  font-size: 17px;
-  font-weight: 500;
+  font-weight: 700;
+  color: #111111;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .Blogbreadcurm-title {
-    font-size: 44px;
-  }
-
-  .Blogbreadcurm-bg-icon {
-    font-size: 110px;
-  }
-}
-
+/* Responsive Scaling */
 @media (max-width: 768px) {
   .Blogbreadcurm {
-    padding: 60px 15px 50px;
+    padding: 60px 16px;
   }
 
   .Blogbreadcurm-title {
@@ -116,34 +108,6 @@
   }
 
   .Blogbreadcurm-bg-icon {
-    font-size: 90px;
-  }
-
-  .Blogbreadcurm-home,
-  .Blogbreadcurm-current {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .Blogbreadcurm {
-    padding: 50px 12px 40px;
-  }
-
-  .Blogbreadcurm-title {
-    font-size: 26px;
-  }
-
-  .Blogbreadcurm-bg-icon {
-    font-size: 70px;
-  }
-
-  .Blogbreadcurm-nav {
-    gap: 6px;
-  }
-
-  .Blogbreadcurm-home,
-  .Blogbreadcurm-current {
-    font-size: 13px;
+    font-size: 85px;
   }
 }

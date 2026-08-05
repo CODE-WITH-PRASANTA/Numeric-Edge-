@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Section Layout */
+.platforms-section {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+/* Header Badge & Title */
+.header-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e824c;
+  background-color: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+/* Platform Main Container */
+.platform-card-container {
+  width: 100%;
+  display: flex;
+  background-color: #f6f7f8;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  position: relative;
+  min-height: 480px;
+}
+
+/* Left Dark Sidebar Navigation */
+.sidebar-menu {
+  width: 360px;
+  background-color: #181818;
+  padding: 40px 0 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  z-index: 5;
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 16px 24px;
+  text-align: left;
+  border-radius: 30px 0 0 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.menu-btn.active {
+  background-color: #1e824c;
+  color: #ffffff;
+  padding-right: 8px;
+  /* राइट साइड में ओवरलैप करने के लिए extended width */
+  width: calc(100% + 25px);
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(30, 130, 76, 0.3);
+  z-index: 10;
+}
+
+.btn-text {
+  z-index: 2;
+  white-space: nowrap;
+}
+
+/* Circle White Arrow Button inside Green Pill */
+.arrow-circle {
+  width: 42px;
+  height: 42px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Right Content Panel */
+.content-panel {
+  flex: 1;
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f6f7f8;
+}
+
+.content-inner {
+  width: 100%;
+}
+
+/* Smooth Fade in Animation when clicking tabs */
+.fade-in-smooth {
+  animation: fadeInSlide 0.4s ease-out forwards;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-heading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+.content-desc {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 580px;
+  margin-bottom: 30px;
+}
+
+/* Embedded Chart Graphic Styles */
+.chart-wrapper {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0f0f0;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.chart-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111827;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 15px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.green { background-color: #22c55e; }
+.dot.red { background-color: #ef4444; }
+
+.export-btn {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.export-btn:hover {
+  background-color: #f9fafb;
+}
+
+.chart-svg-container {
+  width: 100%;
+}
+
+.candlestick-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-axis-text {
+  font-size: 11px;
+  fill: #9ca3af;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .platform-card-container {
+    flex-direction: column;
+  }
+  .sidebar-menu {
+    width: 100%;
+    padding: 20px;
+    border-radius: 28px 28px 0 0;
+  }
+  .menu-btn.active {
+    width: 100%;
+  }
+  .content-panel {
+    padding: 30px 20px;
+  }
+}

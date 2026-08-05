@@ -1,0 +1,162 @@
+:root {
+  --card-bg: #f9fafb;
+  --text-dark: #000000;
+  --text-muted: #6b7280;
+  --green-main: #23854b;
+  --green-hover-dark: #1b6a3b;
+  --grid-line-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Base Outer Section Setup */
+.experience-section {
+  width: 100%;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Individual Card Setup */
+.experience-card {
+  position: relative;
+  background-color: var(--card-bg);
+  /* Light grid pattern background to match reference image */
+  background-image: 
+    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Left Content Alignment */
+.card-content {
+  flex: 1;
+  max-width: 55%;
+  z-index: 2;
+}
+
+.card-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.card-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 28px 0;
+}
+
+/* Learn More Button - Green Hover Open Effect */
+.learn-more-btn {
+  background-color: transparent;
+  color: var(--text-dark);
+  border: 1px solid var(--text-dark);
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Button Pseudoelement for the "Green Hover Open" Expansion */
+.learn-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green-main);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover States for Button */
+.learn-more-btn:hover {
+  color: #ffffff;
+  border-color: var(--green-main);
+}
+
+.learn-more-btn:hover::before {
+  transform: scaleX(1);
+}
+
+/* Right Image Container Alignment */
+.card-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --- Media Queries for Responsive Design --- */
+@media (max-width: 992px) {
+  .experience-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .card-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 576px) {
+  .experience-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px;
+  }
+
+  .card-content {
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .card-image-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .card-title {
+    font-size: 22px;
+  }
+
+  .card-description {
+    font-size: 14px;
+  }
+}

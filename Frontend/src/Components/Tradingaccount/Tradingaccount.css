@@ -1,0 +1,214 @@
+:root {
+  --section-bg: #18191a;
+  --card-bg-initial: #ffffff;
+  --card-bg-hover: #23854b;
+  --green-main: #23854b;
+  --green-dark: #1b6a3b;
+  --button-hover-dark: #121212;
+  --text-dark: #111111;
+  --text-muted: #666666;
+}
+
+/* Base Container & Dark Background */
+.trading-account-section {
+  position: relative;
+  background-color: var(--section-bg);
+  padding: 100px 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.trading-account-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Top & Bottom Torn Edge Dividers */
+.torn-divider {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background-repeat: repeat-x;
+  background-size: contain;
+  z-index: 3;
+}
+
+.top-divider {
+  top: 0;
+  transform: rotate(180deg);
+}
+
+.bottom-divider {
+  bottom: 0;
+}
+
+/* Header Badge & Section Title */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.accounts-badge {
+  display: inline-block;
+  padding: 5px 18px;
+  border: 1px solid var(--green-main);
+  border-radius: 20px;
+  color: var(--green-main);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Floating Side Button */
+.floating-rtl-btn {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--green-main);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Responsive Grid Layout */
+.accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  align-items: stretch;
+}
+
+/* Individual Card Design */
+.account-card {
+  position: relative;
+  background-color: var(--card-bg-initial);
+  border-radius: 12px;
+  padding: 50px 24px 35px 24px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  /* Smooth green close transition effect */
+  transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Card Hover Effect: Background turns Green */
+.account-card:hover {
+  background-color: var(--card-bg-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Top Badge Icon */
+.icon-badge {
+  position: absolute;
+  top: -24px;
+  width: 52px;
+  height: 52px;
+  background-color: var(--green-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile, Search, Moon & Eye hover icon turns white */
+.account-card:hover .icon-badge {
+  background-color: var(--green-main);
+  color: #ffffff;
+}
+
+/* Typography inside cards */
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 10px 0 12px 0;
+  transition: color 0.3s ease;
+}
+
+.card-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 25px 0;
+  transition: color 0.3s ease;
+}
+
+/* Text Turns White when Card is Hovered */
+.account-card:hover .card-title,
+.account-card:hover .card-description {
+  color: #ffffff;
+}
+
+/* Action Button Inside Card */
+.create-account-btn {
+  background-color: var(--green-main);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  /* Smooth green to black effect transition */
+  transition: background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              color 0.3s ease;
+}
+
+/* Button Hover State (Green to Black transition) */
+.create-account-btn:hover {
+  background-color: var(--button-hover-dark);
+  color: #ffffff;
+}
+
+/* --- Media Queries for Responsive Design --- */
+@media (max-width: 1024px) {
+  .accounts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .accounts-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .floating-rtl-btn {
+    display: none; /* Hide floating button on mobile screens */
+  }
+}
