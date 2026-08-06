@@ -1,0 +1,351 @@
+.Topbar {
+  position: fixed;
+  top: 0;
+  left: 260px;
+  right: 0;
+  height: 70px;
+  background: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 900;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Expand layout dimensions dynamically when sidebar collapses */
+.MainLayout.sidebar-collapsed .Topbar {
+  left: 80px;
+}
+
+.TopbarLeft, .TopbarRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.TopbarToggleBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.TopbarToggleBtn:hover {
+  background: rgba(0, 210, 255, 0.1);
+  color: #00d2ff;
+  border-color: rgba(0, 210, 255, 0.2);
+}
+
+.TopbarTickerContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.TickerItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.TickerSymbol {
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.TickerPrice.positive {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.TopbarSearchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.SearchIcon {
+  position: absolute;
+  left: 12px;
+  color: #6b7280;
+}
+
+.TopbarSearchInput {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px 8px 36px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.85rem;
+  width: 220px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.TopbarSearchInput:focus {
+  border-color: #00d2ff;
+  width: 260px;
+  background: rgba(0, 210, 255, 0.02);
+}
+
+.TopbarActionWrapper {
+  position: relative;
+}
+
+.TopbarActionBtn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #9ca3af;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.TopbarActionBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.ActionBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+/* Notification Popup Card */
+.NotificationPopupCard {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 320px;
+  background: #1f2937;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: dropdownFade 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+.PopupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.PopupHeader h4 {
+  font-size: 0.9rem;
+  color: #fff;
+  margin: 0;
+}
+
+.MarkRead {
+  font-size: 0.75rem;
+  color: #00d2ff;
+  cursor: pointer;
+}
+
+.PopupBody {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.NotificationItem {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.2s;
+}
+
+.NotificationItem:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.NotificationContent p {
+  font-size: 0.82rem;
+  color: #d1d5db;
+  margin: 0 0 4px 0;
+}
+
+.NotificationTime {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+.PopupFooter {
+  padding: 10px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.PopupFooter a {
+  font-size: 0.8rem;
+  color: #00d2ff;
+  text-decoration: none;
+}
+
+/* Profile Section Trigger & Dropdown */
+.TopbarProfileTrigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.TopbarProfileTrigger:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ProfileAvatar {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.ProfileAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.OnlineStatusDot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #10b981;
+  border: 2px solid #111827;
+  border-radius: 50%;
+}
+
+.ProfileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.ProfileName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.ProfileRole {
+  font-size: 0.7rem;
+  color: #9ca3af;
+}
+
+.ProfileDropdownCard {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 220px;
+  background: #1f2937;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: dropdownFade 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+.ProfileDropdownHeader {
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.DropdownUserName {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.DropdownUserEmail {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin: 2px 0 0 0;
+}
+
+.ProfileDropdownList {
+  padding: 6px;
+}
+
+.DropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.DropdownItem:hover {
+  background: rgba(0, 210, 255, 0.1);
+  color: #00d2ff;
+}
+
+.DropdownDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 6px 0;
+}
+
+.LogoutItem:hover {
+  background: rgba(255, 75, 75, 0.1);
+  color: #ff4b4b;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.text-positive { color: #10b981; }
+.text-warning { color: #f59e0b; }
+
+@media (max-width: 768px) {
+  .hidden-mobile { display: none; }
+  .Topbar { left: 0 !important; padding: 0 16px; }
+}
