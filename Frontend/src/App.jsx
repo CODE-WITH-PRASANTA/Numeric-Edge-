@@ -14,10 +14,11 @@ import Education from "./Components/Education/Education";
 import BookDetails from "./Components/BookDetails/BookDetails";
 import OurTeam from "./Components/OurTeam/OurTeam";
 import TeamDetails from "./Components/TeamDetails/TeamDetails";
-import AboutUs from "./Pages/A/AboutUs/AboutUs";
 import Bloggrids from "./Pages/Bloggrids/Bloggrids";
 import Blogdetails from "./Pages/Blogdetails/Blogdetails";
 import ContactUs from "./Pages/ContactUs/ContactUs";
+import AboutUs from "./Pages/AboutUs/AboutUs";
+import FaqSection from "./Components/FaqSection/FaqSection";
 
   
 
@@ -35,10 +36,12 @@ const App = () => {
          <Route path="/OurTeam" element={<OurTeam/>} />
          <Route path="/TeamDetails" element={<TeamDetails/>} />
 
-         <Route path='/AboutUs' element={<AboutUs/>}/>
+         <Route path='/about' element={<AboutUs/>}/>
          <Route path='/blog' element={<Bloggrids />}/>
          <Route path='/blogdetails' element={<Blogdetails />}/>
          <Route path='/contact' element={<ContactUs />}/>
+         <Route path='/FaqSection' element={<FaqSection/>}/>
+
 
 
 

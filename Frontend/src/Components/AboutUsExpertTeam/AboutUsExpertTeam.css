@@ -1,5 +1,5 @@
-/* Container & Global Scope Reset */
-.OurTeam-container {
+/* Container Scope & Global Reset */
+.AboutUsExpertTeam-container {
   width: 100%;
   min-height: 100vh;
   background-color: #ffffff;
@@ -9,85 +9,27 @@
   overflow-x: hidden;
 }
 
-.OurTeam-container *,
-.OurTeam-container *::before,
-.OurTeam-container *::after {
+.AboutUsExpertTeam-container *,
+.AboutUsExpertTeam-container *::before,
+.AboutUsExpertTeam-container *::after {
   box-sizing: border-box;
-}
-
-/* ==========================================================================
-   Header Section with Rotating Background Shape
-   ========================================================================== */
-.OurTeam-header {
-  position: relative;
-  text-align: center;
-  padding: 70px 20px 70px;
-  background-color: #fafafa;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.OurTeam-header-bg-shape {
-  position: absolute;
-  top: 15px;
-  width: 130px;
-  height: auto;
-  opacity: 0.85;
-  pointer-events: none;
-  z-index: 1;
-  animation: OurTeam-rotate-clockwise 20s linear infinite;
-  transform-origin: center center;
-}
-
-@keyframes OurTeam-rotate-clockwise {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.OurTeam-title {
-  position: relative;
-  z-index: 2;
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin: 0 0 6px 0;
-  color: #0d0d0d;
-}
-
-.OurTeam-breadcrumb {
-  position: relative;
-  z-index: 2;
-  font-size: 0.95rem;
-  color: #666666;
-  margin: 0;
-}
-
-.OurTeam-breadcrumb-active {
-  color: #177e3c;
-  font-weight: 600;
 }
 
 /* ==========================================================================
    Our Talented Team Member Section
    ========================================================================== */
-.OurTeam-main {
-  max-width: 1240px;
+.AboutUsExpertTeam-main {
+  max-width: 1280px;
   margin: 0 auto;
   padding: 60px 20px 50px;
 }
 
-.OurTeam-badge-container {
+.AboutUsExpertTeam-badge-container {
   text-align: center;
   margin-bottom: 12px;
 }
 
-.OurTeam-badge {
+.AboutUsExpertTeam-badge {
   display: inline-block;
   background-color: #eaf6ed;
   color: #177e3c;
@@ -99,144 +41,136 @@
   text-transform: uppercase;
 }
 
-.OurTeam-section-heading {
+.AboutUsExpertTeam-section-heading {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: #111111;
   margin: 0 0 50px 0;
 }
 
-.OurTeam-grid {
+.AboutUsExpertTeam-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 32px;
   align-items: stretch;
 }
 
-/* Team Card - Styled to match team-block-one DevTools spec */
-.OurTeam-card {
+/* Team Card */
+.AboutUsExpertTeam-card {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
-  min-height: 211.6px;
-  padding: 30px;
+  min-height: 235px;
+  padding: 38px 32px;
   margin-bottom: 30px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.OurTeam-card:hover {
+.AboutUsExpertTeam-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   border-color: #177e3c;
 }
 
-.OurTeam-card-avatar-wrapper {
-  width: 95px;
-  height: 95px;
+.AboutUsExpertTeam-card-avatar-wrapper {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
 }
 
-.OurTeam-card-avatar {
+.AboutUsExpertTeam-card-avatar {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.OurTeam-card-content {
+.AboutUsExpertTeam-card-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
 }
 
-.OurTeam-member-name {
-  font-size: 1.25rem;
-  font-weight: 700;
+.AboutUsExpertTeam-member-name {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: #111111;
   margin: 0 0 4px 0;
   line-height: 1.2;
 }
 
-.OurTeam-member-role {
-  font-size: 0.9rem;
+.AboutUsExpertTeam-member-role {
+  font-size: 0.95rem;
   color: #666666;
-  margin: 0 0 16px 0;
+  margin: 0 0 18px 0;
   font-weight: 400;
 }
 
-.OurTeam-social-icons{
-    display: flex;
-    gap: 14px;
+/* Social Buttons & Hover Effects */
+.AboutUsExpertTeam-social-icons {
+  display: flex;
+  gap: 14px;
 }
 
-/* Outer Circle */
-.OurTeam-social-btn{
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    border: 1px solid #e6e6e6;
-    background: #fff;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-
-    transition: .35s ease;
+.AboutUsExpertTeam-social-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: .35s ease;
 }
 
-/* Inner Black Circle */
-.OurTeam-inner-circle{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #111;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: .35s ease;
+.AboutUsExpertTeam-inner-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .35s ease;
 }
 
-/* Icon */
-.OurTeam-inner-circle i{
-    color: #fff;
-    font-size: 15px;
-    transition: .35s ease;
+.AboutUsExpertTeam-inner-circle i {
+  color: #fff;
+  font-size: 15px;
+  transition: .35s ease;
 }
 
-/* Hover */
-.OurTeam-social-btn:hover{
-    background: #17863d;
-    border-color: #17863d;
-    transform: translateY(-3px);
+.AboutUsExpertTeam-social-btn:hover {
+  background: #17863d;
+  border-color: #17863d;
+  transform: translateY(-3px);
 }
 
-.OurTeam-social-btn:hover .OurTeam-inner-circle{
-    background: #fff;
+.AboutUsExpertTeam-social-btn:hover .AboutUsExpertTeam-inner-circle {
+  background: #fff;
 }
 
-.OurTeam-social-btn:hover .OurTeam-inner-circle i{
-    color: #17863d;
+.AboutUsExpertTeam-social-btn:hover .AboutUsExpertTeam-inner-circle i {
+  color: #17863d;
 }
 
 /* ==========================================================================
    Download Trading App Dark Section
    ========================================================================== */
-.OurTeam-app-banner {
-  max-width: 1240px;
+.AboutUsExpertTeam-app-banner {
+  max-width: 1280px;
   margin: 0 auto 80px;
   background: #1e2022;
   border-radius: 20px;
@@ -250,11 +184,11 @@
   position: relative;
 }
 
-.OurTeam-app-content {
+.AboutUsExpertTeam-app-content {
   max-width: 500px;
 }
 
-.OurTeam-app-badge {
+.AboutUsExpertTeam-app-badge {
   display: inline-block;
   background: rgba(23, 126, 60, 0.2);
   color: #2ed573;
@@ -266,25 +200,25 @@
   margin-bottom: 20px;
 }
 
-.OurTeam-app-title {
+.AboutUsExpertTeam-app-title {
   font-size: 2.6rem;
   font-weight: 800;
   margin: 0 0 16px 0;
 }
 
-.OurTeam-app-desc {
+.AboutUsExpertTeam-app-desc {
   font-size: 0.95rem;
   color: #aaaaaa;
   line-height: 1.6;
   margin-bottom: 30px;
 }
 
-.OurTeam-app-buttons {
+.AboutUsExpertTeam-app-buttons {
   display: flex;
   gap: 15px;
 }
 
-.OurTeam-app-btn {
+.AboutUsExpertTeam-app-btn {
   width: 55px;
   height: 55px;
   border-radius: 12px;
@@ -298,23 +232,23 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.OurTeam-app-btn-apple:hover {
+.AboutUsExpertTeam-app-btn-apple:hover {
   background-color: #177e3c !important;
   transform: translateY(-3px);
 }
 
-.OurTeam-app-btn-qr {
+.AboutUsExpertTeam-app-btn-qr {
   background-color: #eb4d4b;
 }
 
-/* App Phone Mockups Layout */
-.OurTeam-app-mockups {
+/* App Phone Mockups */
+.AboutUsExpertTeam-app-mockups {
   display: flex;
   gap: 20px;
   position: relative;
 }
 
-.OurTeam-phone {
+.AboutUsExpertTeam-phone {
   width: 200px;
   height: 380px;
   background: #000000;
@@ -324,7 +258,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-.OurTeam-phone-screen {
+.AboutUsExpertTeam-phone-screen {
   background: #fdfdfd;
   height: 100%;
   border-radius: 20px;
@@ -333,19 +267,19 @@
   font-size: 0.8rem;
 }
 
-.OurTeam-phone-header {
+.AboutUsExpertTeam-phone-header {
   font-weight: 800;
   margin-bottom: 15px;
   text-align: center;
 }
 
-.OurTeam-phone-trade-card {
+.AboutUsExpertTeam-phone-trade-card {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
 
-.OurTeam-phone-badge-buy {
+.AboutUsExpertTeam-phone-badge-buy {
   background: #177e3c;
   color: white;
   padding: 6px 12px;
@@ -353,20 +287,20 @@
   font-weight: 700;
 }
 
-.OurTeam-phone-badge-sell {
+.AboutUsExpertTeam-phone-badge-sell {
   background: #eee;
   padding: 6px 12px;
   border-radius: 6px;
 }
 
-.OurTeam-phone-row {
+.AboutUsExpertTeam-phone-row {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #f0f0f0;
 }
 
-.OurTeam-phone-balance {
+.AboutUsExpertTeam-phone-balance {
   font-size: 1.2rem;
   font-weight: 800;
   text-align: center;
@@ -377,13 +311,13 @@
 /* ==========================================================================
    Testimonials Carousel Section
    ========================================================================== */
-.OurTeam-testimonials-section {
-  max-width: 1240px;
+.AboutUsExpertTeam-testimonials-section {
+  max-width: 1280px;
   margin: 0 auto 80px;
   position: relative;
 }
 
-.OurTeam-testimonials-stage {
+.AboutUsExpertTeam-testimonials-stage {
   position: relative;
   min-height: 360px;
   display: flex;
@@ -394,8 +328,8 @@
   overflow: hidden;
 }
 
-/* Floating Avatars around quote */
-.OurTeam-float-avatar {
+/* Floating Avatars */
+.AboutUsExpertTeam-float-avatar {
   position: absolute;
   border-radius: 50%;
   object-fit: cover;
@@ -403,25 +337,24 @@
   transition: transform 0.4s ease;
 }
 
-.OurTeam-float-avatar:hover {
+.AboutUsExpertTeam-float-avatar:hover {
   transform: scale(1.1);
 }
 
-.OurTeam-float-1 { width: 65px; height: 65px; top: 10%; left: 12%; }
-.OurTeam-float-2 { width: 50px; height: 50px; top: 45%; left: 6%; }
-.OurTeam-float-3 { width: 55px; height: 55px; top: 70%; left: 18%; }
-.OurTeam-float-4 { width: 60px; height: 60px; top: 10%; right: 12%; }
-.OurTeam-float-5 { width: 50px; height: 50px; top: 45%; right: 6%; }
-.OurTeam-float-6 { width: 55px; height: 55px; top: 70%; right: 18%; }
+.AboutUsExpertTeam-float-1 { width: 65px; height: 65px; top: 10%; left: 12%; }
+.AboutUsExpertTeam-float-2 { width: 50px; height: 50px; top: 45%; left: 6%; }
+.AboutUsExpertTeam-float-3 { width: 55px; height: 55px; top: 70%; left: 18%; }
+.AboutUsExpertTeam-float-4 { width: 60px; height: 60px; top: 10%; right: 12%; }
+.AboutUsExpertTeam-float-5 { width: 50px; height: 50px; top: 45%; right: 6%; }
+.AboutUsExpertTeam-float-6 { width: 55px; height: 55px; top: 70%; right: 18%; }
 
-/* Active Slide with Automatic Left-to-Right Slide Keyframe */
-.OurTeam-testimonial-card-active {
+.AboutUsExpertTeam-testimonial-card-active {
   max-width: 700px;
   text-align: center;
-  animation: OurTeam-autoSlideIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: AboutUsExpertTeam-autoSlideIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-@keyframes OurTeam-autoSlideIn {
+@keyframes AboutUsExpertTeam-autoSlideIn {
   0% {
     opacity: 0;
     transform: translateX(500px);
@@ -432,7 +365,7 @@
   }
 }
 
-.OurTeam-quote {
+.AboutUsExpertTeam-quote {
   font-size: 1.5rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 
   'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -442,34 +375,33 @@
   line-height: 1.3;
 }
 
-.OurTeam-testimonial-desc {
+.AboutUsExpertTeam-testimonial-desc {
   font-size: 0.95rem;
   color: #666666;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-.OurTeam-client-name {
+.AboutUsExpertTeam-client-name {
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0 0 2px 0;
   color: #111;
 }
 
-.OurTeam-client-role {
+.AboutUsExpertTeam-client-role {
   font-size: 0.85rem;
   color: #888;
 }
 
-/* Dots Pagination */
-.OurTeam-dots {
+.AboutUsExpertTeam-dots {
   display: flex;
   gap: 10px;
   margin-top: 30px;
   z-index: 2;
 }
 
-.OurTeam-dot {
+.AboutUsExpertTeam-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -478,16 +410,121 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.OurTeam-dot-active {
+.AboutUsExpertTeam-dot-active {
   background-color: #177e3c;
   transform: scale(1.2);
 }
 
 /* ==========================================================================
-   Newsletter Subscription Banner with 50/50 Meeting Button Animation
+   Media Center Section (Integrated)
    ========================================================================== */
-.OurTeam-subscribe-banner {
-  max-width: 1240px;
+.AboutUsExpertTeam-media-section {
+  max-width: 1280px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.AboutUsExpertTeam-media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.AboutUsExpertTeam-media-card {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.AboutUsExpertTeam-media-card:hover {
+  background-color: #ffffff;
+  border-color: #e5e5e5;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+.AboutUsExpertTeam-media-card-main {
+  padding: 35px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.AboutUsExpertTeam-media-card-date {
+  color: #177e3c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.AboutUsExpertTeam-media-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.35;
+  margin: 0 0 16px 0;
+}
+
+.AboutUsExpertTeam-media-card-desc {
+  font-size: 0.92rem;
+  color: #666666;
+  line-height: 1.65;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+.AboutUsExpertTeam-media-read-more {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111111;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.AboutUsExpertTeam-media-card:hover .AboutUsExpertTeam-media-read-more,
+.AboutUsExpertTeam-media-read-more:hover {
+  color: #177e3c;
+  text-decoration-color: #177e3c;
+}
+
+.AboutUsExpertTeam-media-card-footer {
+  padding: 18px 32px;
+  border-top: 1px solid #ececec;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.AboutUsExpertTeam-media-author-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.AboutUsExpertTeam-media-author-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* ==========================================================================
+   Newsletter Subscription Banner
+   ========================================================================== */
+.AboutUsExpertTeam-subscribe-banner {
+  max-width: 1280px;
   margin: 0 auto 80px;
   background-color: #177e3c;
   border-radius: 16px;
@@ -498,7 +535,7 @@
   gap: 20px;
 }
 
-.OurTeam-subscribe-title {
+.AboutUsExpertTeam-subscribe-title {
   color: #ffffff;
   font-size: 1.8rem;
   font-weight: 700;
@@ -506,14 +543,14 @@
   flex: 1;
 }
 
-.OurTeam-subscribe-form {
+.AboutUsExpertTeam-subscribe-form {
   display: flex;
   align-items: center;
   gap: 12px;
   flex: 1.2;
 }
 
-.OurTeam-subscribe-input {
+.AboutUsExpertTeam-subscribe-input {
   flex: 1;
   padding: 14px 20px;
   border-radius: 8px;
@@ -522,8 +559,7 @@
   font-size: 0.95rem;
 }
 
-/* Black to White 50/50 Dual Slide-and-Meet Animation Button */
-.OurTeam-subscribe-btn {
+.AboutUsExpertTeam-subscribe-btn {
   position: relative;
   background-color: #121212;
   color: #ffffff;
@@ -538,8 +574,7 @@
   transition: color 0.35s ease;
 }
 
-/* Left side 50% white fill layer */
-.OurTeam-subscribe-btn::before {
+.AboutUsExpertTeam-subscribe-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -551,8 +586,7 @@
   z-index: -1;
 }
 
-/* Right side 50% white fill layer */
-.OurTeam-subscribe-btn::after {
+.AboutUsExpertTeam-subscribe-btn::after {
   content: '';
   position: absolute;
   top: 0;
@@ -564,20 +598,19 @@
   z-index: -1;
 }
 
-/* Hover effect meeting in center */
-.OurTeam-subscribe-btn:hover {
+.AboutUsExpertTeam-subscribe-btn:hover {
   color: #121212;
 }
 
-.OurTeam-subscribe-btn:hover::before {
+.AboutUsExpertTeam-subscribe-btn:hover::before {
   left: 0;
 }
 
-.OurTeam-subscribe-btn:hover::after {
+.AboutUsExpertTeam-subscribe-btn:hover::after {
   right: 0;
 }
 
-.OurTeam-subscribe-btn span {
+.AboutUsExpertTeam-subscribe-btn span {
   position: relative;
   z-index: 2;
 }
@@ -586,56 +619,58 @@
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1024px) {
-  .OurTeam-grid {
+  .AboutUsExpertTeam-grid,
+  .AboutUsExpertTeam-media-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .OurTeam-app-banner {
+  .AboutUsExpertTeam-app-banner {
     flex-direction: column;
     text-align: center;
   }
 
-  .OurTeam-app-buttons {
+  .AboutUsExpertTeam-app-buttons {
     justify-content: center;
   }
 
-  .OurTeam-subscribe-banner {
+  .AboutUsExpertTeam-subscribe-banner {
     flex-direction: column;
     text-align: center;
   }
 
-  .OurTeam-subscribe-form {
+  .AboutUsExpertTeam-subscribe-form {
     width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .OurTeam-grid {
+  .AboutUsExpertTeam-grid,
+  .AboutUsExpertTeam-media-grid {
     grid-template-columns: 1fr;
   }
 
-  .OurTeam-card {
+  .AboutUsExpertTeam-card {
     min-height: auto;
-    padding: 20px;
+    padding: 25px;
   }
 
-  .OurTeam-float-avatar {
+  .AboutUsExpertTeam-float-avatar {
     display: none;
   }
 
-  .OurTeam-quote {
+  .AboutUsExpertTeam-quote {
     font-size: 1.4rem;
   }
 
-  .OurTeam-app-mockups {
+  .AboutUsExpertTeam-app-mockups {
     display: none;
   }
 
-  .OurTeam-subscribe-form {
+  .AboutUsExpertTeam-subscribe-form {
     flex-direction: column;
   }
 
-  .OurTeam-subscribe-btn {
+  .AboutUsExpertTeam-subscribe-btn {
     width: 100%;
   }
 }

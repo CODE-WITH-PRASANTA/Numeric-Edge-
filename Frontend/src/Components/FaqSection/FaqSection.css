@@ -1,0 +1,346 @@
+/* Container Scope & Global Reset */
+.FaqSection-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'IBM Plex Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.FaqSection-container *,
+.FaqSection-container *::before,
+.FaqSection-container *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Header Section with Smooth 20s Rotating Background Image
+   ========================================================================== */
+.FaqSection-header {
+  position: relative;
+  text-align: center;
+  padding: 85px 20px 75px;
+  background-color: #fafafa;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.FaqSection-header-bg-shape {
+  position: absolute;
+  top: 15px;
+  width: 140px;
+  height: auto;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+  animation: FaqSection-rotateClockwise 20s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes FaqSection-rotateClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.FaqSection-header-title {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  color: #0d0d0d;
+  letter-spacing: -0.5px;
+}
+
+.FaqSection-breadcrumb {
+  position: relative;
+  z-index: 2;
+  font-size: 0.95rem;
+  color: #666666;
+  margin: 0;
+}
+
+.FaqSection-breadcrumb-active {
+  color: #177e3c;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   FAQ Accordion Section (Only Header Pill Green)
+   ========================================================================== */
+.FaqSection-content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 20px 80px;
+}
+
+.FaqSection-badge-container {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.FaqSection-badge {
+  display: inline-block;
+  background-color: #eaf6ed;
+  color: #177e3c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border: 1px solid #d4ece0;
+}
+
+.FaqSection-section-heading {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #111111;
+  margin: 0 0 45px 0;
+  letter-spacing: -0.5px;
+}
+
+.FaqSection-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Item Container - Clean transparent shell */
+.FaqSection-accordion-item {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Question Header Button - Default White Pill */
+.FaqSection-accordion-header {
+  width: 100%;
+  padding: 22px 36px;
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 40px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  color: #111111;
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.FaqSection-accordion-question {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.FaqSection-accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease;
+  margin-left: 16px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   ACTIVE STATE: Only Question Header Pill turns Green
+   ========================================================================== */
+.FaqSection-accordion-item-open .FaqSection-accordion-header {
+  background-color: #177e3c; /* Green header pill */
+  border-color: #177e3c;
+  color: #ffffff;            /* White title text */
+  box-shadow: 0 8px 20px rgba(23, 126, 60, 0.18);
+}
+
+.FaqSection-accordion-item-open .FaqSection-accordion-icon {
+  transform: rotate(180deg);
+  color: #ffffff;
+}
+
+/* Answer Slide Down Collapse Container */
+.FaqSection-accordion-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.FaqSection-accordion-item-open .FaqSection-accordion-collapse {
+  grid-template-rows: 1fr;
+}
+
+.FaqSection-accordion-body {
+  overflow: hidden;
+  padding: 0 36px;
+}
+
+/* Answer Paragraph - Keeps White Background and Dark Gray Text */
+.FaqSection-accordion-body p {
+  margin: 0;
+  padding: 22px 0 10px 0;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #666666; /* Gray text matching referral screenshot */
+  background-color: #ffffff;
+}
+
+/* ==========================================================================
+   Newsletter Subscription Banner
+   ========================================================================== */
+.FaqSection-subscribe-banner {
+  max-width: 1240px;
+  margin: 0 auto 80px;
+  background-color: #177e3c;
+  border-radius: 16px;
+  padding: 38px 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.FaqSection-subscribe-title {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  flex: 1;
+  letter-spacing: -0.5px;
+}
+
+.FaqSection-subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1.1;
+}
+
+.FaqSection-subscribe-input {
+  flex: 1;
+  padding: 16px 22px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: #333333;
+}
+
+.FaqSection-subscribe-btn {
+  position: relative;
+  background-color: #121212;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.35s ease;
+  white-space: nowrap;
+}
+
+/* Left 50% White Fill Layer */
+.FaqSection-subscribe-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #ffffff;
+  transition: left 0.35s ease-out;
+  z-index: -1;
+}
+
+/* Right 50% White Fill Layer */
+.FaqSection-subscribe-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #ffffff;
+  transition: right 0.35s ease-out;
+  z-index: -1;
+}
+
+.FaqSection-subscribe-btn:hover {
+  color: #177e3c;
+}
+
+.FaqSection-subscribe-btn:hover::before {
+  left: 0;
+}
+
+.FaqSection-subscribe-btn:hover::after {
+  right: 0;
+}
+
+.FaqSection-subscribe-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .FaqSection-subscribe-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 35px 25px;
+  }
+
+  .FaqSection-subscribe-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .FaqSection-header-title {
+    font-size: 2.2rem;
+  }
+
+  .FaqSection-section-heading {
+    font-size: 2.1rem;
+  }
+
+  .FaqSection-accordion-header {
+    padding: 18px 24px;
+  }
+
+  .FaqSection-accordion-body {
+    padding: 0 24px;
+  }
+
+  .FaqSection-accordion-question {
+    font-size: 1rem;
+  }
+
+  .FaqSection-subscribe-title {
+    font-size: 1.6rem;
+  }
+
+  .FaqSection-subscribe-form {
+    flex-direction: column;
+  }
+
+  .FaqSection-subscribe-btn {
+    width: 100%;
+  }
+}

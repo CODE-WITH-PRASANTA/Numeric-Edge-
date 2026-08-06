@@ -112,16 +112,30 @@ const OurTeam = () => {
               <div className="OurTeam-card-content">
                 <h3 className="OurTeam-member-name">{member.name}</h3>
                 <p className="OurTeam-member-role">{member.role}</p>
-                <div className="OurTeam-social-icons">
-                  <a href="#twitter" className="OurTeam-social-btn" aria-label="Twitter">
-                    <span>t</span>
+                
+              <div className="OurTeam-social-icons">
+
+                  {/* Twitter */}
+                  <a href="#" className="OurTeam-social-btn">
+                    <div className="OurTeam-inner-circle">
+                      <i className="fab fa-twitter"></i>
+                    </div>
                   </a>
-                  <a href="#linkedin" className="OurTeam-social-btn" aria-label="LinkedIn">
-                    <span>in</span>
+
+                  {/* LinkedIn */}
+                  <a href="#" className="OurTeam-social-btn">
+                    <div className="OurTeam-inner-circle">
+                      <i className="fab fa-linkedin-in"></i>
+                    </div>
                   </a>
-                  <a href="#web" className="OurTeam-social-btn" aria-label="Website">
-                    <span>🌐</span>
+
+                  {/* Dribbble */}
+                  <a href="#" className="OurTeam-social-btn">
+                    <div className="OurTeam-inner-circle">
+                      <i className="fab fa-dribbble"></i>
+                    </div>
                   </a>
+
                 </div>
               </div>
             </div>
