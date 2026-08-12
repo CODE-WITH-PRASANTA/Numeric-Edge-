@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaHeadset } from 'react-icons/fa';
+import { FaHeadset, FaSignOutAlt } from 'react-icons/fa';
 import './Topbar.css';
 
-const Topbar = () => {
+const Topbar = ({ onLogout }) => {
   const phoneNumber = '91-2345-678';
   const telHref = `tel:${phoneNumber.replace(/-/g, '')}`;
 
@@ -18,9 +17,14 @@ const Topbar = () => {
         </a>
 
         <div className="Topbar-actions">
-          <Link to="/login" className="Topbar-btn Topbar-btn--outline">
-            Login
-          </Link>
+          <button 
+            type="button" 
+            onClick={onLogout} 
+            className="Topbar-btn Topbar-btn--outline"
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
+          >
+            <FaSignOutAlt /> Logout
+          </button>
         </div>
       </div>
     </div>

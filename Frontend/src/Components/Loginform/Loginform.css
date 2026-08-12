@@ -1,11 +1,11 @@
-/* :root {
+:root {
   --bg-dark: #070c18;
   --card-bg: rgba(13, 22, 40, 0.65);
   --border-glow: rgba(56, 189, 248, 0.25);
   --accent-cyan: #00d2ff;
   --accent-blue: #0066ff;
   --btn-gradient: linear-gradient(135deg, #00c6ff 0%, #0052d4 100%);
-  --text-primary: #ffffff;
+  --text-primary: Black;
   --text-secondary: #94a3b8;
   --input-bg: rgba(15, 23, 42, 0.7);
 }
@@ -17,16 +17,31 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Ensure HTML & Body take full height */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* FULL PAGE CENTERING CONTAINER */
 .Loginform-container {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: radial-gradient(circle at 50% 50%, #0f1c3f 0%, #050914 100%);
-  position: relative;
-  overflow: hidden;
+  position: fixed; /* Ensures it stays centered regardless of parent layout */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
   perspective: 1200px;
+  z-index: 1000;
 }
 
 /* Background Grid & Trading Chart Visual Glows */
@@ -39,6 +54,7 @@
   left: 20%;
   filter: blur(80px);
   animation: LoginformPulse 8s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .Loginform-bg-glow-2 {
@@ -50,6 +66,7 @@
   right: 20%;
   filter: blur(80px);
   animation: LoginformPulse 6s ease-in-out infinite alternate-reverse;
+  pointer-events: none;
 }
 
 @keyframes LoginformPulse {
@@ -71,6 +88,7 @@
   transform-style: preserve-3d;
   animation: LoginformFloat3D 6s ease-in-out infinite alternate;
   z-index: 10;
+  margin: auto; /* Fallback centering */
 }
 
 @keyframes LoginformFloat3D {
@@ -279,7 +297,7 @@
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, #00c6ff, #0052d4);
-  color: white;
+  color: blue;
   font-size: 40px;
   border-radius: 50%;
   display: flex;
@@ -327,5 +345,6 @@
 @media (max-width: 480px) {
   .Loginform-card {
     padding: 30px 20px;
+    width: 90%;
   }
-} 
+}

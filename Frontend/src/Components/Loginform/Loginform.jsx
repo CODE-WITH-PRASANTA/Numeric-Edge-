@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Loginform.css';
-import logo from '../../assets/numeric.jpeg'; // Make sure logo.png is present in the same folder
+import logo from '../../assets/numeric.jpeg';
 
 const Loginform = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('numericedge');
@@ -8,6 +9,8 @@ const Loginform = ({ onLoginSuccess }) => {
   const [rememberMe, setRememberMe] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,10 +28,11 @@ const Loginform = ({ onLoginSuccess }) => {
         if (onLoginSuccess) {
           onLoginSuccess();
         }
-      }, 2200);
+        navigate('/'); // Login होने के बाद Home Page पर Redirect
+      }, 2000);
     }
   };
-  
+
   return (
     <div className="Loginform-container">
       <div className="Loginform-bg-glow"></div>
