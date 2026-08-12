@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
+// Match these paths EXACTLY with App.js routes
 const navLinks = [
   { label: 'Home', path: '/', end: true },
-  { label: 'Trading', path: '/trading' },
-  { label: 'Market', path: '/market' },
-  { label: 'About Us', path: '/about' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Our Courses', path: '/education' },
+  { label: 'Our Team', path: '/our-team' },
   { label: 'Blog', path: '/blog' },
   { label: 'Contact', path: '/contact' },
 ];
