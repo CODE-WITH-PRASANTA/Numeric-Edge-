@@ -1,0 +1,153 @@
+.Sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 260px;
+  background: linear-gradient(180deg, #0b132b 0%, #1c2541 100%);
+  color: #8d99ae;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease-in-out;
+  z-index: 1000;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+}
+
+.Sidebar.collapsed {
+  width: 80px;
+}
+
+.SidebarHeader {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.15);
+  gap: 12px;
+}
+
+.SidebarLogoContainer {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 210, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.SidebarLogoImg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.SidebarBrandName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.BrandDot {
+  color: #00d2ff;
+}
+
+.SidebarCategoryTitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 24px 20px 8px 20px;
+  letter-spacing: 1.2px;
+  color: #48cae4;
+  opacity: 0.7;
+}
+
+.SidebarMenuList {
+  list-style: none;
+  padding: 0 12px;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.SidebarMenuList::-webkit-scrollbar {
+  width: 4px;
+}
+.SidebarMenuList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.SidebarMenuItem {
+  margin-bottom: 6px;
+}
+
+.SidebarMenuLink {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  color: #8d99ae;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.SidebarMenuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+}
+
+.SidebarMenuLink:hover {
+  background: rgba(0, 210, 255, 0.08);
+  color: #00d2ff;
+}
+
+.SidebarMenuLink:hover .SidebarMenuIcon {
+  color: #00d2ff;
+}
+
+.SidebarFooter {
+  padding: 16px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.SidebarLogoutLink:hover {
+  background: rgba(255, 75, 75, 0.1);
+  color: #ff4b4b;
+}
+
+.SidebarOverlay {
+  display: none;
+}
+
+/* Responsive Mobile Rules */
+@media (max-width: 768px) {
+  .Sidebar {
+    transform: translateX(-100%);
+    width: 260px !important;
+  }
+  .Sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .SidebarOverlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+  }
+}

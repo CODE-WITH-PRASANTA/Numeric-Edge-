@@ -1,0 +1,221 @@
+/* Base Container */
+.ContactSection {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 70px 20px;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #333333;
+}
+
+.ContactSection-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+}
+
+/* ========================================== */
+/* INCREASED SIZE FOR INFO CARDS & ICONS      */
+/* ========================================== */
+
+.ContactSection-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.ContactSection-info-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Larger circular icon wrapper */
+.ContactSection-icon-wrapper {
+  width: 68px;
+  height: 68px;
+  min-width: 68px;
+  background-color: #1b8344;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px; /* Increased Icon Size */
+  transition: transform 0.3s ease;
+}
+
+.ContactSection-info-card:hover .ContactSection-icon-wrapper {
+  transform: scale(1.08);
+}
+
+.ContactSection-info-content h3 {
+  font-size: 18px; /* Increased Heading Font Size */
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #111111;
+}
+
+.ContactSection-info-content p {
+  font-size: 14px; /* Increased Subtext Font Size */
+  color: #666666;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Contact Form Layout */
+.ContactSection-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ContactSection-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.ContactSection-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ContactSection-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444444;
+}
+
+.ContactSection-form-group label span {
+  color: #1b8344;
+}
+
+.ContactSection-form-group input,
+.ContactSection-form-group textarea {
+  width: 100%;
+  padding: 16px 22px;
+  border: 1fr solid #e2e8f0;
+  border-radius: 35px;
+  font-size: 15px;
+  color: #333333;
+  outline: none;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ContactSection-form-group textarea {
+  border-radius: 22px;
+  resize: vertical;
+}
+
+.ContactSection-form-group input:focus,
+.ContactSection-form-group textarea:focus {
+  border-color: #1b8344;
+  box-shadow: 0 0 0 4px rgba(27, 131, 68, 0.12);
+}
+
+/* ========================================== */
+/* 2-SIDE SLIDE ANIMATION BUTTON TO BLACK     */
+/* ========================================== */
+
+.ContactSection-submit-btn {
+  position: relative;
+  align-self: flex-start;
+  background-color: #1b8344; /* Initial Green color */
+  color: #ffffff;
+  padding: 16px 42px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 40px; /* Fully pill-shaped matching reference */
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease;
+  margin-top: 8px;
+}
+
+.ContactSection-submit-btn span {
+  position: relative;
+  z-index: 2; /* Keeps button text above the slide animation */
+}
+
+/* Left sliding panel */
+.ContactSection-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #111111; /* Black color on hover */
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+/* Right sliding panel */
+.ContactSection-submit-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #111111; /* Black color on hover */
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+/* Hover State: Slide both panels to meet in the center */
+.ContactSection-submit-btn:hover::before {
+  transform: translateX(0);
+}
+
+.ContactSection-submit-btn:hover::after {
+  transform: translateX(0);
+}
+
+/* Map Embed Wrapper */
+.ContactSection-map-wrapper {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.ContactSection-map-wrapper iframe {
+  display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .ContactSection-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ContactSection-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ContactSection-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ContactSection {
+    padding: 40px 16px;
+  }
+
+  .ContactSection-submit-btn {
+    width: 100%;
+  }
+}

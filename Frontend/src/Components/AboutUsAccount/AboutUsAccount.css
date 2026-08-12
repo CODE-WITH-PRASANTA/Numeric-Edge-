@@ -1,0 +1,310 @@
+/* Global Container & Scope Reset */
+.AboutUsAccount-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'IBM Plex Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.AboutUsAccount-container *,
+.AboutUsAccount-container *::before,
+.AboutUsAccount-container *::after {
+  box-sizing: border-box;
+}
+
+.AboutUsAccount-main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ==========================================================================
+   Left Cards Layout & Initial Smooth Drop Animation
+   ========================================================================== */
+/* ==========================================================================
+   Account Cards Grid Section - Expanded Sizes & Spacing
+   ========================================================================== */
+.AboutUsAccount-cards-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px; /* Increased grid gap between columns */
+}
+
+.AboutUsAccount-col-right {
+  margin-top: 50px; /* Offset right column to maintain design hierarchy */
+}
+
+.AboutUsAccount-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px; /* Slightly smoother rounded corners */
+  padding: 40px 32px 35px; /* Increased internal padding for larger box size */
+  min-height: 230px; /* Ensures consistent expanded card height */
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px; /* Increased bottom spacing between cards */
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Entry Drop Animation */
+  opacity: 0;
+  animation: AboutUsAccount-smoothDrop 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes AboutUsAccount-smoothDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.AboutUsAccount-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   Icon Badge Top-to-Bottom Fill Animation
+   ========================================================================== */
+.AboutUsAccount-icon-badge {
+  position: absolute;
+  top: -24px; /* Positioned cleanly over top border */
+  left: 32px;
+  width: 50px; /* Slightly larger badge size */
+  height: 50px;
+  background-color: #177e3c; /* Initial green color */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(23, 126, 60, 0.25);
+}
+
+/* Dark color layer sliding top-to-bottom */
+.AboutUsAccount-icon-badge::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212;
+  transition: top 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+
+/* Trigger top-to-bottom dark fill on hover anywhere on card */
+.AboutUsAccount-card:hover .AboutUsAccount-icon-badge::before {
+  top: 0;
+}
+
+.AboutUsAccount-icon-symbol {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Increased top margin to expand gap between floating icon and title */
+.AboutUsAccount-card-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #111111;
+  margin: 28px 0 14px 0; /* Gap from badge increased to 28px */
+  line-height: 1.25;
+}
+
+.AboutUsAccount-card-desc {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Right Side Content Styling
+   ========================================================================== */
+.AboutUsAccount-content-section {
+  padding-left: 20px;
+}
+
+.AboutUsAccount-badge-container {
+  margin-bottom: 12px;
+}
+
+.AboutUsAccount-badge {
+  display: inline-block;
+  background-color: #eaf6ed;
+  color: #177e3c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.AboutUsAccount-heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+}
+
+.AboutUsAccount-heading-green {
+  color: #177e3c;
+}
+
+.AboutUsAccount-subtext {
+  font-size: 0.98rem;
+  color: #666666;
+  line-height: 1.65;
+  margin-bottom: 30px;
+}
+
+.AboutUsAccount-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.AboutUsAccount-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #444444;
+  font-weight: 500;
+}
+
+.AboutUsAccount-check-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #d1ead7;
+  color: #177e3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Create Account Button - Slower 50/50 Dual Slide Animation
+   ========================================================================== */
+.AboutUsAccount-create-btn {
+  position: relative;
+  background-color: #177e3c; /* Green initially */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  /* Changed from 0.35s to 0.7s for a slower text color shift */
+  transition: color 0.7s ease; 
+}
+
+/* Left 50% dark fill layer */
+.AboutUsAccount-create-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #121212;
+  /* Changed duration from 0.35s to 0.7s for a slower, smoother left slide */
+  transition: left 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+
+/* Right 50% dark fill layer */
+.AboutUsAccount-create-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #121212;
+  /* Changed duration from 0.35s to 0.7s for a slower, smoother right slide */
+  transition: right 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+
+/* Hover effect meeting in center */
+.AboutUsAccount-create-btn:hover {
+  color: #ffffff;
+}
+
+.AboutUsAccount-create-btn:hover::before {
+  left: 0;
+}
+
+.AboutUsAccount-create-btn:hover::after {
+  right: 0;
+}
+
+.AboutUsAccount-create-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Responsive Design Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .AboutUsAccount-main {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 60px 20px;
+  }
+
+  .AboutUsAccount-content-section {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .AboutUsAccount-cards-section {
+    grid-template-columns: 1fr;
+  }
+
+  .AboutUsAccount-col-right {
+    margin-top: 0;
+  }
+
+  .AboutUsAccount-heading {
+    font-size: 2.1rem;
+  }
+
+  .AboutUsAccount-create-btn {
+    width: 100%;
+  }
+}

@@ -18,9 +18,6 @@ const Topbar = () => {
         </a>
 
         <div className="Topbar-actions">
-          <Link to="/open-account" className="Topbar-btn Topbar-btn--filled">
-            Open Account
-          </Link>
           <Link to="/login" className="Topbar-btn Topbar-btn--outline">
             Login
           </Link>

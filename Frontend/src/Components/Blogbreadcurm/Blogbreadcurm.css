@@ -1,0 +1,113 @@
+/* Container section matching reference layout */
+.Blogbreadcurm {
+  width: 100%;
+  background-color: #f4f6f5; /* Light subtle grey background from image */
+  padding: 90px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.Blogbreadcurm-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Title Area containing the spinning money icon and main heading */
+.Blogbreadcurm-title-area {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Light green rotating icon positioned directly behind the text */
+.Blogbreadcurm-bg-icon {
+  position: absolute;
+  font-size: 110px;
+  color: #cde7d8; /* Light pastel green tint from design */
+  opacity: 0.85;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  /* Smooth infinite rotation animation */
+  animation: rotateMoney 18s linear infinite;
+}
+
+/* Keyframes for continuous smooth 360° rotation */
+@keyframes rotateMoney {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Main Heading Typography */
+.Blogbreadcurm-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Playfair Display', 'Georgia', serif; /* Serif typography matching image */
+  font-size: 48px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+  padding: 10px 0;
+  letter-spacing: -0.5px;
+}
+
+/* Navigation & Separator Styling */
+.Blogbreadcurm-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Georgia', serif;
+  font-size: 15px;
+  color: #555555;
+  margin-top: 4px;
+}
+
+.Blogbreadcurm-home {
+  color: #555555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.Blogbreadcurm-home:hover {
+  color: #000000;
+}
+
+.Blogbreadcurm-separator {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: #777777;
+}
+
+.Blogbreadcurm-current {
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Responsive Scaling */
+@media (max-width: 768px) {
+  .Blogbreadcurm {
+    padding: 60px 16px;
+  }
+
+  .Blogbreadcurm-title {
+    font-size: 34px;
+  }
+
+  .Blogbreadcurm-bg-icon {
+    font-size: 85px;
+  }
+}
