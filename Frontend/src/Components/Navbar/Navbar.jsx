@@ -4,13 +4,14 @@ import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../../assets/numeric.jpeg'; // अपनी लोगो इमेज का सही Path यहाँ सेट करें
 import './Navbar.css';
 
+// Match these paths EXACTLY with App.js routes
 const navLinks = [
   { label: 'Home', path: '/', end: true },
-   { label: 'About Us', path: '/about' },
   { label: 'Courses', path: '/courses' },
-  { label: 'Our Mentors', path: '/mentors' },
-  { label: 'Market Insights', path: '/market-insights' },
   { label: 'Trading', path: '/trading' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Our Courses', path: '/education' },
+  { label: 'Our Team', path: '/our-team' },
   { label: 'Blog', path: '/blog' },
   { label: 'FAQs', path: '/faqs' },
   { label: 'Contact', path: '/contact' },

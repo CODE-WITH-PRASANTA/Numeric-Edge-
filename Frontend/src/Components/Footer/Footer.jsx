@@ -1,21 +1,17 @@
 import React from 'react';
 import {
-  FaApple,
-  FaAndroid,
   FaFacebookF,
   FaTwitter,
   FaLinkedinIn,
   FaInstagram,
   FaYoutube,
   FaArrowUp,
-  FaQrcode,
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaEnvelope,
 } from 'react-icons/fa';
 import './Footer.css';
 
-// Logo Image Import (अपनी फाइल की लोकेशन के अनुसार पथ बदलें)
 import logo from '../../assets/numeric.jpeg';
 
 const footerColumns = [
@@ -70,26 +66,6 @@ const socialLinks = [
   { icon: <FaTwitter />, label: 'Twitter', href: 'https://twitter.com' },
 ];
 
-const storeBadges = [
-  { icon: <FaApple />, eyebrow: 'Download on the', title: 'App Store', modifier: 'apple', href: '#' },
-  { icon: <FaAndroid />, eyebrow: 'Get it on', title: 'Google Play', modifier: 'android', href: '#' },
-];
-
-// QR code pattern data
-const qrCells = (() => {
-  const size = 9;
-  const seedRow = (r) => [1, 0, 1, 1, 0, 1, 0, 1, 1].map((v, i) => v ^ ((r + i) % 3 === 0 ? 1 : 0));
-  const cells = [];
-  for (let r = 0; r < size; r++) {
-    const row = seedRow(r);
-    row.forEach((v, c) => {
-      const isFinder = (r < 3 && c < 3) || (r < 3 && c > size - 4) || (r > size - 4 && c < 3);
-      if (v || isFinder) cells.push({ r, c, on: isFinder ? (r === 1 && c === 1 ? 0 : 1) : !!v });
-    });
-  }
-  return cells;
-})();
-
 const Footer = () => {
   const year = new Date().getFullYear();
 
@@ -102,41 +78,9 @@ const Footer = () => {
       <div className="Footer-glow" aria-hidden="true" />
 
       <div className="Footer-container">
-        {/* Contact Bar (SEO Local Business Data) */}
-        <div className="Footer-contactBar">
-          <div className="Footer-contactItem" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-            <FaMapMarkerAlt className="Footer-contactIcon" />
-            <div>
-              <strong>Head Office:</strong>
-              <span itemProp="streetAddress"> 511A, Grand Bazar, Bamphakuda, Phulnakhara</span>,{' '}
-              <span itemProp="addressLocality">Bhubaneswar</span>, <span itemProp="addressRegion">Odisha</span>{' '}
-              <span itemProp="postalCode">754001</span>
-            </div>
-          </div>
-
-          <div className="Footer-contactItem">
-            <FaPhoneAlt className="Footer-contactIcon" />
-            <div>
-              <strong>Call Us:</strong>{' '}
-              <a href="tel:+919938702775" itemProp="telephone" className="Footer-contactLink">
-                +91 9938702775
-              </a>
-            </div>
-          </div>
-
-          <div className="Footer-contactItem">
-            <FaEnvelope className="Footer-contactIcon" />
-            <div>
-              <strong>Email:</strong>{' '}
-              <a href="mailto:info@numericedge.in" itemProp="email" className="Footer-contactLink">
-                info@numericedge.in
-              </a>
-            </div>
-          </div>
-        </div>
-
+        {/* Top Section */}
         <div className="Footer-top">
-          {/* Footer Columns */}
+          {/* Columns */}
           <div className="Footer-columns">
             {footerColumns.map((col) => (
               <div className="Footer-col" key={col.title}>
@@ -154,55 +98,35 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* App Promo Card */}
-          <div className="Footer-promo">
-            <div className="Footer-promo-inner">
-              <div className="Footer-promo-brand">
-                <img
-                  src={logo}
-                  alt="Numeric Edge Trading Academy Logo"
-                  className="Footer-promo-logoImg"
-                  itemProp="logo"
-                />
+          {/* Contact Bar Below Columns */}
+          <div className="Footer-contactBar">
+            <div className="Footer-contactItem" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+              <FaMapMarkerAlt className="Footer-contactIcon" />
+              <div>
+                <strong>Head Office:</strong>
+                <span itemProp="streetAddress"> 511A, Grand Bazar, Bamphakuda, Phulnakhara</span>,{' '}
+                <span itemProp="addressLocality">Bhubaneswar</span>, <span itemProp="addressRegion">Odisha</span>{' '}
+                <span itemProp="postalCode">754001</span>
               </div>
+            </div>
 
-              <p className="Footer-promo-tagline">Learn Stock Market & Trading on Our App.</p>
-
-              <div className="Footer-promo-qrFrame">
-                <span className="Footer-promo-qrFrame-corner tl" />
-                <span className="Footer-promo-qrFrame-corner tr" />
-                <span className="Footer-promo-qrFrame-corner bl" />
-                <span className="Footer-promo-qrFrame-corner br" />
-
-                <div className="Footer-promo-qr" role="img" aria-label="QR Code to download Numeric Edge Mobile App">
-                  <svg viewBox="0 0 9 9" className="Footer-promo-qr-svg">
-                    {qrCells.map(({ r, c, on }, i) =>
-                      on ? <rect key={i} x={c} y={r} width="1" height="1" className="Footer-promo-qr-cell" /> : null
-                    )}
-                  </svg>
-                  <span className="Footer-promo-qr-scanLine" aria-hidden="true" />
-                </div>
+            <div className="Footer-contactItem">
+              <FaPhoneAlt className="Footer-contactIcon" />
+              <div>
+                <strong>Call Us:</strong>{' '}
+                <a href="tel:+919938702775" itemProp="telephone" className="Footer-contactLink">
+                  +91 9938702775
+                </a>
               </div>
+            </div>
 
-              <span className="Footer-promo-qrCaption">
-                <FaQrcode /> Scan to Download App
-              </span>
-
-              <div className="Footer-promo-stores">
-                {storeBadges.map((store) => (
-                  <a
-                    key={store.title}
-                    href={store.href}
-                    className={`Footer-storeBadge Footer-storeBadge--${store.modifier}`}
-                    aria-label={`${store.eyebrow} ${store.title}`}
-                  >
-                    <span className="Footer-storeBadge-icon">{store.icon}</span>
-                    <span className="Footer-storeBadge-text">
-                      <small>{store.eyebrow}</small>
-                      <strong>{store.title}</strong>
-                    </span>
-                  </a>
-                ))}
+            <div className="Footer-contactItem">
+              <FaEnvelope className="Footer-contactIcon" />
+              <div>
+                <strong>Email:</strong>{' '}
+                <a href="mailto:info@numericedge.in" itemProp="email" className="Footer-contactLink">
+                  info@numericedge.in
+                </a>
               </div>
             </div>
           </div>

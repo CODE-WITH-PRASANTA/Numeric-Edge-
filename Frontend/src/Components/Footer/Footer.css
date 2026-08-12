@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Footer — Numeric Edge Trading Academy Premium Theme
-   ========================================================================== */
-
 .Footer {
   --footer-accent: #1a9c53;
   --footer-accent-dark: #0f7a3d;
@@ -40,61 +36,14 @@
 }
 
 /* ============================
-   CONTACT BAR (SEO & Local Data)
-============================ */
-
-.Footer-contactBar {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
-  padding: 24px 32px;
-  margin-top: 40px;
-  background: #ffffff;
-  border-radius: var(--footer-radius);
-  border: 1px solid var(--footer-border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-}
-
-.Footer-contactItem {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 0.92rem;
-  color: var(--footer-muted);
-}
-
-.Footer-contactIcon {
-  font-size: 1.5rem;
-  color: var(--footer-accent);
-  flex-shrink: 0;
-}
-
-.Footer-contactItem strong {
-  color: var(--footer-text);
-}
-
-.Footer-contactLink {
-  color: var(--footer-accent-dark);
-  text-decoration: none;
-  font-weight: 700;
-  transition: color 0.2s ease;
-}
-
-.Footer-contactLink:hover {
-  text-decoration: underline;
-  color: var(--footer-accent);
-}
-
-/* ============================
    TOP SECTION
 ============================ */
 
 .Footer-top {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 48px;
-  padding: 48px 0 56px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 48px 0 32px;
 }
 
 .Footer-columns {
@@ -167,207 +116,48 @@
 }
 
 /* ============================
-   PROMO CARD
+   CONTACT BAR (Below Columns)
 ============================ */
 
-.Footer-promo {
-  position: relative;
-  border-radius: calc(var(--footer-radius) + 2px);
-  padding: 2px;
-  background: linear-gradient(140deg, var(--footer-accent), #cfe9dc 40%, var(--footer-border) 70%);
-  box-shadow: var(--footer-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.Footer-promo:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 55px rgba(16, 40, 27, 0.14);
-}
-
-.Footer-promo-inner {
-  background: var(--footer-card-bg);
+.Footer-contactBar {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px 28px;
+  background: #ffffff;
   border-radius: var(--footer-radius);
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  border: 1px solid var(--footer-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
-.Footer-promo-logoImg {
-  max-height: 48px;
-  width: auto;
-  object-fit: contain;
-}
-
-.Footer-promo-tagline {
-  margin: 12px 0 20px;
-  font-size: 0.95rem;
-  color: var(--footer-muted);
-  font-weight: 500;
-}
-
-.Footer-promo-qrFrame {
-  position: relative;
-  padding: 12px;
-  margin-bottom: 12px;
-}
-
-.Footer-promo-qrFrame-corner {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 3px solid var(--footer-accent);
-  transition: width 0.25s ease, height 0.25s ease;
-}
-
-.Footer-promo-qrFrame-corner.tl {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-  border-radius: 8px 0 0 0;
-}
-
-.Footer-promo-qrFrame-corner.tr {
-  top: 0;
-  right: 0;
-  border-left: none;
-  border-bottom: none;
-  border-radius: 0 8px 0 0;
-}
-
-.Footer-promo-qrFrame-corner.bl {
-  bottom: 0;
-  left: 0;
-  border-right: none;
-  border-top: none;
-  border-radius: 0 0 0 8px;
-}
-
-.Footer-promo-qrFrame-corner.br {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-  border-radius: 0 0 8px 0;
-}
-
-.Footer-promo:hover .Footer-promo-qrFrame-corner {
-  width: 26px;
-  height: 26px;
-}
-
-.Footer-promo-qr {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  background: #f6f7f8;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px var(--footer-border);
-}
-
-.Footer-promo-qr-svg {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.Footer-promo-qr-cell {
-  fill: #16181a;
-}
-
-.Footer-promo-qr-scanLine {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--footer-accent), transparent);
-  box-shadow: 0 0 10px 1px rgba(26, 156, 83, 0.6);
-  animation: qrScan 2.6s ease-in-out infinite;
-  z-index: 2;
-}
-
-@keyframes qrScan {
-  0% { top: 10%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 90%; opacity: 0; }
-}
-
-.Footer-promo-qrCaption {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--footer-accent-dark);
-  letter-spacing: 0.02em;
-  margin-bottom: 20px;
-}
-
-.Footer-promo-stores {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-.Footer-storeBadge {
+.Footer-contactItem {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 9px 16px;
-  border-radius: 11px;
-  color: #ffffff;
+  font-size: 0.9rem;
+  color: var(--footer-muted);
+}
+
+.Footer-contactIcon {
+  font-size: 1.3rem;
+  color: var(--footer-accent);
+  flex-shrink: 0;
+}
+
+.Footer-contactItem strong {
+  color: var(--footer-text);
+}
+
+.Footer-contactLink {
+  color: var(--footer-accent-dark);
   text-decoration: none;
-  box-shadow: 0 6px 14px rgba(16, 40, 27, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 700;
+  transition: color 0.2s ease;
 }
 
-.Footer-storeBadge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(16, 40, 27, 0.18);
-}
-
-.Footer-storeBadge-icon {
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-}
-
-.Footer-storeBadge-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  line-height: 1.2;
-}
-
-.Footer-storeBadge-text small {
-  font-size: 0.65rem;
-  opacity: 0.85;
-  text-transform: uppercase;
-}
-
-.Footer-storeBadge-text strong {
-  font-size: 0.95rem;
-  font-weight: 800;
-}
-
-.Footer-storeBadge--apple {
-  background: linear-gradient(135deg, #2b2b2d, #101011);
-}
-
-.Footer-storeBadge--android {
-  background: linear-gradient(135deg, #1a9c53, #0f7a3d);
+.Footer-contactLink:hover {
+  text-decoration: underline;
+  color: var(--footer-accent);
 }
 
 /* ============================
@@ -380,7 +170,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 24px;
-  padding: 32px 0 40px;
+  padding: 28px 0 36px;
   border-top: 1px solid var(--footer-border);
 }
 
@@ -541,28 +331,10 @@
   transform: translateY(-3px);
 }
 
-/* ============================
-   RESPONSIVE
-============================ */
-
-@media (max-width: 1180px) {
+/* RESPONSIVE */
+@media (max-width: 860px) {
   .Footer-contactBar {
     grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .Footer-top {
-    grid-template-columns: 1fr;
-  }
-
-  .Footer-promo {
-    max-width: 420px;
-  }
-}
-
-@media (max-width: 860px) {
-  .Footer-columns {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
