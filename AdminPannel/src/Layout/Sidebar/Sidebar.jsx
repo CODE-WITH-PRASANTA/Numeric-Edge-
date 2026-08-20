@@ -34,7 +34,7 @@ const Sidebar = ({ isCollapsed, isMobileOpen, closeMobileSidebar }) => {
           <div className="SidebarLogoContainer">
             <img src={logo} alt="Trading Logo" className="SidebarLogoImg" />
           </div>
-          {!isCollapsed && <span className="SidebarBrandName">ApexTrade<span className="BrandDot">.</span></span>}
+          {!isCollapsed && <span className="SidebarBrandName">Numeric Edge<span className="BrandDot">.</span></span>}
         </div>
 
         <div className="SidebarCategoryTitle">{!isCollapsed ? "MAIN NAVIGATION" : "---"}</div>
