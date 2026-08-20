@@ -5,12 +5,12 @@
   --text-dark: #0f172a;
   --text-light: #64748b;
   --border-color: rgba(16, 185, 129, 0.15);
-  
+
   --color-navy: #065f46;
   --color-green: #10b981;
   --color-purple: #8b5cf6;
   --color-orange: #f59e0b;
-  
+
   /* Vibrant Light Backgrounds for 3D Cards */
   --bg-blue-light: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
   --bg-green-light: linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%);
@@ -26,7 +26,8 @@
   width: 100%;
   box-sizing: border-box;
   background-color: var(--bg-color);
-  padding: 10px;
+  padding: 24px;
+  min-height: 100vh;
 }
 
 /* Grids Setup */
@@ -54,7 +55,6 @@
   border-radius: 16px;
   padding: 22px;
   border: 1px solid var(--border-color);
-  /* Multi-layered 3D Elevation Shadow */
   box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.08),
               0 4px 12px rgba(0, 0, 0, 0.03);
   display: flex;
@@ -149,16 +149,19 @@
   color: #1d4ed8; 
   border: 1px solid rgba(37, 99, 235, 0.2);
 }
+
 .bg-green-light { 
   background: var(--bg-green-light); 
   color: #047857; 
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
+
 .bg-purple-light { 
   background: var(--bg-purple-light); 
   color: #6d28d9; 
   border: 1px solid rgba(139, 92, 246, 0.2);
 }
+
 .bg-orange-light { 
   background: var(--bg-orange-light); 
   color: #b45309; 

@@ -1,0 +1,341 @@
+/* Fullscreen Wrapper Setup */
+.AdminTermandConditions-fullscreen-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #060a08;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Main Container Grid & Scroll Fit */
+.AdminTermandConditions-container {
+  width: 100%;
+  height: 100%;
+  max-width: 1550px;
+  max-height: 950px;
+  background: linear-gradient(145deg, #09120e 0%, #040806 100%);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 24px;
+  padding: 40px 50px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar */
+.AdminTermandConditions-container::-webkit-scrollbar {
+  width: 8px;
+}
+.AdminTermandConditions-container::-webkit-scrollbar-track {
+  background: rgba(6, 10, 8, 0.5);
+  border-radius: 4px;
+}
+.AdminTermandConditions-container::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.3);
+  border-radius: 4px;
+}
+.AdminTermandConditions-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.6);
+}
+
+/* Background Atmospheric Glows */
+.AdminTermandConditions-bg-glow-1 {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.AdminTermandConditions-bg-glow-2 {
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.08) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Simulated Background Trading Chart Lines in Header */
+.AdminTermandConditions-chart-candles {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  display: flex;
+  gap: 15px;
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.AdminTermandConditions-chart-candles span {
+  width: 8px;
+  background: #10b981;
+  border-radius: 4px;
+}
+.AdminTermandConditions-chart-candles span:nth-child(1) { height: 60px; }
+.AdminTermandConditions-chart-candles span:nth-child(2) { height: 110px; }
+.AdminTermandConditions-chart-candles span:nth-child(3) { height: 80px; }
+.AdminTermandConditions-chart-candles span:nth-child(4) { height: 140px; }
+.AdminTermandConditions-chart-candles span:nth-child(5) { height: 95px; }
+
+/* Header Banner Card Matching Reference Design */
+.AdminTermandConditions-header-card {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.35) 0%, rgba(2, 44, 34, 0.6) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 20px;
+  padding: 45px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  margin-bottom: 35px;
+}
+
+.AdminTermandConditions-header-content {
+  flex: 1;
+}
+
+.AdminTermandConditions-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  color: #34d399;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.AdminTermandConditions-badge-icon {
+  font-size: 1.1rem;
+}
+
+.AdminTermandConditions-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.AdminTermandConditions-highlight {
+  color: #34d399;
+  background: linear-gradient(180deg, #6ee7b7 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.AdminTermandConditions-subtitle {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  max-width: 750px;
+  margin: 0;
+}
+
+/* Shield Badge Graphic Element matching the Visual */
+.AdminTermandConditions-shield-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.AdminTermandConditions-shield-ring {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border: 2px dashed rgba(16, 185, 129, 0.3);
+  border-radius: 50%;
+  animation: adminShieldRotate 20s linear infinite;
+}
+
+@keyframes adminShieldRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.AdminTermandConditions-shield-icon {
+  font-size: 8.5rem;
+  color: #065f46;
+  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.4));
+}
+
+.AdminTermandConditions-check-icon {
+  position: absolute;
+  font-size: 3rem;
+  color: #34d399;
+}
+
+/* Detailed Grid Layout */
+.AdminTermandConditions-content-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.AdminTermandConditions-card {
+  background: rgba(11, 19, 15, 0.65);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 18px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.AdminTermandConditions-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(15, 27, 21, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.AdminTermandConditions-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.AdminTermandConditions-card-icon-box {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AdminTermandConditions-card-icon-box svg {
+  font-size: 1.4rem;
+  color: #34d399;
+}
+
+.AdminTermandConditions-card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.AdminTermandConditions-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.AdminTermandConditions-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 15px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.AdminTermandConditions-arrow-icon {
+  font-size: 1.1rem;
+  color: #34d399;
+  transition: transform 0.2s ease;
+}
+
+.AdminTermandConditions-card:hover .AdminTermandConditions-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Support Footer Box */
+.AdminTermandConditions-support-footer {
+  position: relative;
+  z-index: 2;
+  background: rgba(6, 78, 59, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 16px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.AdminTermandConditions-support-icon {
+  font-size: 2.2rem;
+  color: #34d399;
+  flex-shrink: 0;
+}
+
+.AdminTermandConditions-support-footer h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.AdminTermandConditions-support-footer p {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Responsive Scaling for All Devices */
+@media (max-width: 1024px) {
+  .AdminTermandConditions-fullscreen-wrapper {
+    padding: 10px;
+  }
+  .AdminTermandConditions-container {
+    max-height: 100vh;
+    border-radius: 12px;
+    padding: 25px 20px;
+  }
+  .AdminTermandConditions-header-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  .AdminTermandConditions-shield-container {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  .AdminTermandConditions-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .AdminTermandConditions-title {
+    font-size: 2rem;
+  }
+  .AdminTermandConditions-subtitle {
+    font-size: 0.9rem;
+  }
+  .AdminTermandConditions-support-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
