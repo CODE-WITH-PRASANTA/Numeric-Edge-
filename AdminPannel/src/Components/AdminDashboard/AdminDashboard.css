@@ -1,20 +1,20 @@
-/* --- Root Variables & Theme --- */
+/* --- Dark Theme Root Variables (Trading Platform Aesthetic) --- */
 :root {
-  --bg-color: #f8f9fa;
-  --card-bg: #ffffff;
-  --text-dark: #1f2937;
-  --text-light: #6b7280;
-  --border-color: #f3f4f6;
+  --bg-color: #0b0f19;
+  --card-bg: #131b2e;
+  --text-dark: #f8fafc;
+  --text-light: #94a3b8;
+  --border-color: #1e293b;
   
-  --color-navy: #0b1839;
-  --color-green: #10b981;
-  --color-purple: #8f47cf;
-  --color-orange: #e0a347;
+  --color-sky: #38bdf8;
+  --color-green: #34d399;
+  --color-purple: #c084fc;
+  --color-yellow: #facc15;
   
-  --bg-blue-light: #e9f1ff;
-  --bg-green-light: #e7f6ea;
-  --bg-purple-light: #f4e9ff;
-  --bg-orange-light: #fff6e8;
+  --bg-blue-light: rgba(56, 189, 248, 0.1);
+  --bg-green-light: rgba(52, 211, 153, 0.1);
+  --bg-purple-light: rgba(192, 132, 252, 0.1);
+  --bg-yellow-light: rgba(250, 204, 21, 0.1);
 }
 
 /* --- Container & Layout --- */
@@ -24,6 +24,9 @@
   gap: 24px;
   width: 100%;
   box-sizing: border-box;
+  background-color: var(--bg-color);
+  padding: 24px;
+  min-height: 100vh;
 }
 
 /* Grids Setup */
@@ -50,8 +53,8 @@
   background: var(--card-bg);
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,8 +104,8 @@
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .AdminDashboard-iconWrapper {
@@ -116,10 +119,10 @@
   flex-shrink: 0;
 }
 
-.bg-blue-light { background: var(--bg-blue-light); color: var(--color-navy); }
+.bg-blue-light { background: var(--bg-blue-light); color: var(--color-sky); }
 .bg-green-light { background: var(--bg-green-light); color: var(--color-green); }
 .bg-purple-light { background: var(--bg-purple-light); color: var(--color-purple); }
-.bg-orange-light { background: var(--bg-orange-light); color: var(--color-orange); }
+.bg-yellow-light { background: var(--bg-yellow-light); color: var(--color-yellow); }
 
 .AdminDashboard-statContent {
   display: flex;
@@ -171,8 +174,8 @@
   gap: 4px;
 }
 
-.text-navy { color: var(--color-navy); }
-.text-gold { color: var(--color-orange); }
+.text-sky { color: var(--color-sky); }
+.text-emerald { color: var(--color-green); }
 .rotate-90 { transform: rotate(90deg); }
 
 /* --- Recent Activity --- */
@@ -199,10 +202,10 @@
   flex-shrink: 0;
 }
 
-.text-blue { color: #2563eb; }
-.text-green { color: #10b981; }
-.text-purple { color: #8f47cf; }
-.text-orange { color: #d97706; }
+.text-blue { color: var(--color-sky); }
+.text-green { color: var(--color-green); }
+.text-purple { color: var(--color-purple); }
+.text-yellow { color: var(--color-yellow); }
 
 .AdminDashboard-activityContent {
   display: flex;
@@ -281,7 +284,7 @@
 
 .AdminDashboard-progressFill {
   height: 100%;
-  background: var(--color-navy);
+  background: var(--color-sky);
   border-radius: 3px;
 }
 
@@ -343,7 +346,7 @@
 }
 
 .AdminDashboard-sessionDate {
-  background: var(--bg-orange-light);
+  background: var(--bg-yellow-light);
   border-radius: 8px;
   padding: 8px 10px;
   display: flex;
@@ -363,7 +366,7 @@
 .AdminDashboard-sessionMonth {
   font-size: 0.6rem;
   font-weight: 600;
-  color: var(--color-orange);
+  color: var(--color-yellow);
 }
 
 .AdminDashboard-sessionInfo {
@@ -398,9 +401,9 @@
 }
 
 .AdminDashboard-joinBtn:hover {
-  background: var(--color-navy);
-  color: #ffffff;
-  border-color: var(--color-navy);
+  background: var(--color-sky);
+  color: #0b0f19;
+  border-color: var(--color-sky);
 }
 
 /* --- Footer Banner --- */
@@ -411,14 +414,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   gap: 16px;
 }
 
 .AdminDashboard-footerIcon {
   background: var(--bg-blue-light);
-  color: var(--color-navy);
+  color: var(--color-sky);
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -443,13 +446,13 @@
 }
 
 .AdminDashboard-goLearningBtn {
-  background: var(--color-navy);
-  color: #ffffff;
+  background: var(--color-sky);
+  color: #0b0f19;
   border: none;
   padding: 10px 16px;
   border-radius: 8px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -459,7 +462,7 @@
 }
 
 .AdminDashboard-goLearningBtn:hover {
-  background: #14285c;
+  background: #7dd3fc;
 }
 
 /* --- Responsive Media Queries --- */

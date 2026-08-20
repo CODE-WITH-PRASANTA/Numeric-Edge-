@@ -1,0 +1,302 @@
+/* Fullscreen Wrapper Setup */
+.PrivacyPolicy-fullscreen-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #030605;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+/* Main Scrollable Container */
+.PrivacyPolicy-container {
+  width: 100%;
+  height: 100%;
+  max-width: 1450px;
+  max-height: 950px;
+  background: linear-gradient(150deg, #07100b 0%, #030605 100%);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-radius: 24px;
+  padding: 40px 50px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar */
+.PrivacyPolicy-container::-webkit-scrollbar {
+  width: 8px;
+}
+.PrivacyPolicy-container::-webkit-scrollbar-track {
+  background: rgba(5, 10, 8, 0.5);
+  border-radius: 4px;
+}
+.PrivacyPolicy-container::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.3);
+  border-radius: 4px;
+}
+.PrivacyPolicy-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.6);
+}
+
+/* Background Atmosphere Glows */
+.PrivacyPolicy-bg-glow-1 {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.PrivacyPolicy-bg-glow-2 {
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.08) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Background Trading Candlestick Animation Bars */
+.PrivacyPolicy-trading-candles {
+  position: absolute;
+  top: 30px;
+  right: 180px;
+  display: flex;
+  gap: 12px;
+  opacity: 0.12;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.PrivacyPolicy-trading-candles span {
+  width: 6px;
+  background: #10b981;
+  border-radius: 3px;
+}
+.PrivacyPolicy-trading-candles span:nth-child(1) { height: 40px; }
+.PrivacyPolicy-trading-candles span:nth-child(2) { height: 85px; }
+.PrivacyPolicy-trading-candles span:nth-child(3) { height: 60px; }
+.PrivacyPolicy-trading-candles span:nth-child(4) { height: 110px; }
+.PrivacyPolicy-trading-candles span:nth-child(5) { height: 75px; }
+
+/* Header Layout */
+.PrivacyPolicy-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+  padding-bottom: 30px;
+}
+
+.PrivacyPolicy-title-box {
+  flex: 1;
+}
+
+.PrivacyPolicy-main-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.1;
+}
+
+.PrivacyPolicy-highlight {
+  color: #34d399;
+  background: linear-gradient(180deg, #6ee7b7 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.PrivacyPolicy-underline-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.PrivacyPolicy-line {
+  width: 100px;
+  height: 3px;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+.PrivacyPolicy-title-icon {
+  font-size: 1.1rem;
+  color: #34d399;
+}
+
+.PrivacyPolicy-subtitle {
+  font-size: 1.02rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0;
+}
+
+/* Shield Lock Visual Element */
+.PrivacyPolicy-shield-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.PrivacyPolicy-shield-ring {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border: 2px dashed rgba(16, 185, 129, 0.35);
+  border-radius: 50%;
+  animation: policyShieldSpin 20s linear infinite;
+}
+
+@keyframes policyShieldSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.PrivacyPolicy-shield-icon {
+  font-size: 6.5rem;
+  color: #10b981;
+  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.45));
+}
+
+/* Accordion List Layout */
+.PrivacyPolicy-accordion-list {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.PrivacyPolicy-card {
+  background: rgba(11, 19, 15, 0.7);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-radius: 14px;
+  padding: 20px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.PrivacyPolicy-card:hover {
+  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(15, 27, 21, 0.85);
+}
+
+.PrivacyPolicy-card.active {
+  border-color: #10b981;
+  background: rgba(15, 27, 21, 0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.PrivacyPolicy-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PrivacyPolicy-card-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.PrivacyPolicy-number-badge {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+.PrivacyPolicy-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.PrivacyPolicy-arrow-box {
+  font-size: 1.4rem;
+  color: #34d399;
+  display: flex;
+  align-items: center;
+}
+
+/* Accordion Expand Body */
+.PrivacyPolicy-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.PrivacyPolicy-card.active .PrivacyPolicy-card-body {
+  max-height: 150px;
+  padding-top: 15px;
+}
+
+.PrivacyPolicy-card-text {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .PrivacyPolicy-fullscreen-wrapper {
+    padding: 10px;
+  }
+  .PrivacyPolicy-container {
+    max-height: 100vh;
+    border-radius: 12px;
+    padding: 25px 20px;
+  }
+  .PrivacyPolicy-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .PrivacyPolicy-underline-group {
+    justify-content: center;
+  }
+  .PrivacyPolicy-shield-container {
+    margin-top: 25px;
+    margin-left: 0;
+  }
+  .PrivacyPolicy-main-title {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .PrivacyPolicy-main-title {
+    font-size: 2rem;
+  }
+  .PrivacyPolicy-subtitle {
+    font-size: 0.9rem;
+  }
+  .PrivacyPolicy-card-title {
+    font-size: 1rem;
+  }
+}

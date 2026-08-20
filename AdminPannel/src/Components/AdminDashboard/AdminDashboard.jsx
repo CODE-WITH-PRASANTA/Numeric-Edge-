@@ -40,10 +40,10 @@ const performanceData = [
 ];
 
 const revenueData = [
-  { name: "Course Sales", value: 45200, color: "#0b1839" }, // Dark Navy
-  { name: "Live Sessions", value: 22300, color: "#e0a347" }, // Gold/Orange
-  { name: "Memberships", value: 12850, color: "#27a845" }, // Green
-  { name: "Other Sources", value: 6070, color: "#8f47cf" }, // Purple
+  { name: "Course Sales", value: 45200, color: "#38bdf8" }, // Bright Blue
+  { name: "Live Sessions", value: 22300, color: "#34d399" }, // Mint Green
+  { name: "Memberships", value: 12850, color: "#facc15" }, // Gold/Yellow
+  { name: "Other Sources", value: 6070, color: "#c084fc" }, // Purple
 ];
 
 const topCourses = [
@@ -100,7 +100,7 @@ const recentActivity = [
     action: "Priya Patel",
     time: "1d ago",
     icon: <MdOutlineAssignmentTurnedIn />,
-    color: "orange",
+    color: "yellow",
   },
 ];
 
@@ -108,7 +108,7 @@ const upcomingSessions = [
   {
     day: "24",
     month: "MAY",
-    title: "Market Outlook 2024",
+    title: "Market Outlook 2026",
     time: "07:00 PM - 08:30 PM",
     mentor: "Mr. Arjun Singh",
   },
@@ -186,7 +186,7 @@ const AdminDashboard = () => {
           value="8"
           change="▲ 25%"
           changeColor="text-green"
-          iconBg="bg-orange-light"
+          iconBg="bg-yellow-light"
         />
       </div>
 
@@ -202,23 +202,23 @@ const AdminDashboard = () => {
           </div>
           <div className="AdminDashboard-chartLegend">
             <div className="legend-item">
-              <GoDotFill className="text-navy" /> Revenue
+              <GoDotFill className="text-sky" /> Revenue
             </div>
             <div className="legend-item">
-              <GoDotFill className="text-gold" /> Students
+              <GoDotFill className="text-emerald" /> Students
             </div>
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={performanceData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-              <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12 }} />
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1e293b" />
+              <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: "#94a3b8" }} />
               <YAxis
                 yAxisId="left"
                 orientation="left"
                 axisLine={false}
                 tickLine={false}
                 tickFormatter={(value) => `₹ ${value / 1000}K`}
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 12, fill: "#94a3b8" }}
                 domain={[0, 100000]}
                 ticks={[0, 25000, 50000, 75000, 100000]}
               />
@@ -227,16 +227,18 @@ const AdminDashboard = () => {
                 orientation="right"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 12, fill: "#94a3b8" }}
                 domain={[0, 1500]}
                 ticks={[0, 375, 750, 1125, 1500]}
               />
-              <Tooltip contentStyle={{ fontSize: "12px", borderRadius: "8px" }} />
+              <Tooltip 
+                contentStyle={{ backgroundColor: "#0f172a", borderColor: "#334155", fontSize: "12px", borderRadius: "8px", color: "#f8fafc" }} 
+              />
               <Line
                 yAxisId="left"
                 type="monotone"
                 dataKey="Revenue"
-                stroke="#0b1839"
+                stroke="#38bdf8"
                 strokeWidth={2}
                 dot={false}
               />
@@ -244,7 +246,7 @@ const AdminDashboard = () => {
                 yAxisId="right"
                 type="monotone"
                 dataKey="Students"
-                stroke="#e0a347"
+                stroke="#34d399"
                 strokeWidth={2}
                 dot={false}
               />
@@ -345,7 +347,7 @@ const AdminDashboard = () => {
                     fontSize: "12px",
                     lineHeight: "24px",
                   }}
-                  formatter={(value, entry) => {
+                  formatter={(value) => {
                     const data = revenueData.find((d) => d.name === value);
                     return (
                       <span className="AdminDashboard-legendText">
@@ -369,7 +371,7 @@ const AdminDashboard = () => {
             {upcomingSessions.map((session, index) => (
               <div key={index} className="AdminDashboard-sessionItem">
                 <div className="AdminDashboard-sessionDate">
-                  <MdCalendarToday className="text-gold" size={14} />
+                  <MdCalendarToday className="text-yellow" size={14} />
                   <span className="AdminDashboard-sessionDay">{session.day}</span>
                   <span className="AdminDashboard-sessionMonth">{session.month}</span>
                 </div>
