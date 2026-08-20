@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import MainLayout from "./Layout/MainLayout/MainLayout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -9,7 +9,7 @@ import Transactions from "./Components/Transactions/Transactions";
 import OrderHistory from "./Components/OrderHistory/OrderHistory";
 import Loginform from "./Components/Loginform/Loginform";
 
-// Protected Route wrapper to check authentication state
+
 const ProtectedRoute = ({ isAuthenticated }) => {
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
@@ -18,28 +18,38 @@ const ProtectedRoute = ({ isAuthenticated }) => {
 };
 
 const App = () => {
-  // Manage authentication state
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // Initialize state from localStorage so it survives page reloads
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem("isAuthenticated") === "true";
+  });
+
+  const handleLoginSuccess = () => {
+    localStorage.setItem("isAuthenticated", "true");
+    setIsAuthenticated(true);
+  };
+
+  // Optional logout helper if you need it later
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    setIsAuthenticated(false);
+  };
 
   return (
     <BrowserRouter>
       <Routes>
-        {/* If already authenticated, redirect away from login to dashboard */}
         <Route 
           path="/login" 
           element={
             isAuthenticated ? (
               <Navigate to="/dashboard" replace />
             ) : (
-              <Loginform onLoginSuccess={() => setIsAuthenticated(true)} />
+              <Loginform onLoginSuccess={handleLoginSuccess} />
             )
           } 
         />
 
-        {/* Redirect base URL root to login first */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* Protected Routes wrapped inside MainLayout */}
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
           <Route element={<MainLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
@@ -51,7 +61,6 @@ const App = () => {
           </Route>
         </Route>
 
-        {/* Fallback catch-all redirect */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
