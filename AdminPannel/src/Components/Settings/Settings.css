@@ -1,0 +1,582 @@
+/* ==========================================
+   SETTINGS COMPONENT - LIGHT SIDEBAR MATCHED THEME
+   ========================================== */
+
+/* Layout & Page Container */
+.Settings {
+  padding: 32px;
+  background: linear-gradient(160deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.SettingsTopHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.SettingsTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.3px;
+  margin: 0 0 6px 0;
+}
+
+.SettingsSubtitle {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Primary Button - Matches Light Green Sidebar Active State */
+.SettingsPrimaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3),
+              0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.SettingsPrimaryBtn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(16, 185, 129, 0.38);
+}
+
+/* Navigation Tabs */
+.SettingsTabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 28px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.SettingsTabItem {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  padding: 0 0 12px 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.SettingsTabItem:hover {
+  color: #0f172a;
+}
+
+.SettingsTabItem.active {
+  color: #059669;
+}
+
+.SettingsTabItem.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+  border-radius: 3px 3px 0 0;
+}
+
+/* Main Grid Layout */
+.SettingsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.SettingsGrid.SettingsSingleCol {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+}
+
+/* Card Base - White Crisp 3D Elevated Cards */
+.SettingsCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04),
+              0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.SettingsCard:hover {
+  box-shadow: 0 14px 35px -5px rgba(0, 0, 0, 0.07),
+              0 6px 16px rgba(0, 0, 0, 0.03);
+}
+
+.SettingsCardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.SettingsCardIcon {
+  font-size: 1.15rem;
+  color: #10b981;
+  margin-top: 2px;
+}
+
+.SettingsCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.SettingsCardSubtitle {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Profile Form Section */
+.SettingsProfileBody {
+  display: flex;
+  gap: 20px;
+}
+
+.SettingsAvatarContainer {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.SettingsAvatarImg {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #10b981;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.SettingsAvatarUploadBadge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.SettingsAvatarUploadBadge:hover {
+  background: #f1f5f9;
+  transform: scale(1.1);
+}
+
+.SettingsFormFields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.SettingsFormRow {
+  display: flex;
+  gap: 12px;
+}
+
+.SettingsFormGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.SettingsLabel {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Clean Form Inputs */
+.SettingsInput,
+.SettingsSelect {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.SettingsInput:focus,
+.SettingsSelect:focus {
+  background: #ffffff;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.SettingsCardActionRight {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+.SettingsUpdateBtn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.SettingsUpdateBtn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-1px);
+}
+
+/* List Items in Cards */
+.SettingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.SettingsListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.SettingsListItem.clickable {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin: -2px -10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Green Subtle Hover Effect - Same as Sidebar Links */
+.SettingsListItem.clickable:hover {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.SettingsListItem.clickable:hover .SettingsItemName {
+  color: #065f46;
+}
+
+.SettingsListText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.SettingsItemName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.SettingsItemDesc {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.SettingsInlineSelect {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  outline: none;
+  min-width: 130px;
+  transition: all 0.2s ease;
+}
+
+.SettingsInlineSelect:focus {
+  border-color: #10b981;
+  background: #ffffff;
+}
+
+.SettingsStatusSuccess {
+  color: #059669;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.SettingsStatusMuted {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.SettingsBadgeSuccess {
+  color: #047857;
+  background: #dcfce7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.SettingsItemArrow {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Secondary Action Buttons inside Cards */
+.SettingsFullWidthBtn {
+  width: 100%;
+  margin-top: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #334155;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.SettingsFullWidthBtn:hover {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #065f46;
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Action Rows */
+.SettingsActionRowBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: #334155;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  text-align: left;
+}
+
+.SettingsActionRowBtn:hover {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #065f46;
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Red Danger Action - Matches Sidebar Logout Hover Style */
+.SettingsActionDanger {
+  color: #dc2626 !important;
+  border-color: rgba(239, 68, 68, 0.1) !important;
+  margin-top: 4px;
+}
+
+.SettingsActionDanger:hover {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%) !important;
+  color: #991b1b !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  box-shadow: 0 6px 16px -4px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Trading Preferences 2-Column Section */
+.SettingsTradingGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.SettingsTradingCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.SettingsToggleItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Toggle Switch Component - Green 3D Base */
+.SettingsSwitch {
+  width: 44px;
+  height: 24px;
+  background-color: #cbd5e1;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.SettingsSwitch.active {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.SettingsSwitchHandle {
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.SettingsSwitch.active .SettingsSwitchHandle {
+  transform: translateX(20px);
+}
+
+/* Tables for Users & API Keys */
+.SettingsTableWrapper {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.SettingsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.SettingsTable th {
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.SettingsTable td {
+  padding: 14px 12px;
+  font-size: 0.85rem;
+  color: #334155;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.SettingsTableMain {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.SettingsTableCode {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #334155;
+  background: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.SettingsTableActionBtn {
+  background: #ffffff;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.SettingsTableActionBtn:hover {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Footer */
+.SettingsFooter {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 40px;
+}
+
+/* Responsive Rules */
+@media (max-width: 1280px) {
+  .SettingsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .SettingsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .SettingsTradingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .SettingsProfileBody {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .SettingsFormRow {
+    flex-direction: column;
+  }
+}
