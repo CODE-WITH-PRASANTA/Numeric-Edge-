@@ -4,14 +4,14 @@ import './TradingPlatform.css';
 const platformData = [
   {
     id: 'fxt',
-    title: 'FXT Application',
-    heading: 'FXT App',
+    title: 'NumericEdge Forex Strategy',
+    heading: 'Forex Strategy',
     description: "Navigate the financial waves with FXT's premier trading app, designed to put the power of the markets in your palm."
   },
   {
     id: 'mt4',
-    title: 'Meta Trader 4',
-    heading: 'Meta Trader 4',
+    title: 'NumericEdge Equity Strategy',
+    heading: 'Equity Strategy',
     description: "Experience seamless trading execution with Meta Trader 4, providing advanced charting and real-time market insights."
   },
   {

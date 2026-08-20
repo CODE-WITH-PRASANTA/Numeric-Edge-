@@ -40,8 +40,8 @@ const HomeBreadcrum = () => {
             {/* Floating Text Section */}
             <div className="text-content float-in">
               <h1 className="hero-title">
-                Ultimate Forex <br />
-                Trading Mastery
+                Odisha's Most Simple <br />
+                Number Based Option Strategy
               </h1>
               <p className="hero-description">
                 Keep your trading costs down with competitive spreads,
@@ -86,8 +86,8 @@ const HomeBreadcrum = () => {
             {/* Floating Text Section */}
             <div className="text-content float-in">
               <h1 className="hero-title">
-                Ultimate Forex <br />
-                Trading Mastery
+                We Provide All Market Strategy <br />
+                 Under One Roof 
               </h1>
               <p className="hero-description">
                 Keep your trading costs down with competitive spreads,

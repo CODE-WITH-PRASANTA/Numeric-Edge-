@@ -1,94 +1,70 @@
 import React from 'react';
 import {
-  FaApple,
-  FaWindows,
-  FaAndroid,
   FaFacebookF,
   FaTwitter,
   FaLinkedinIn,
-  FaSkype,
+  FaInstagram,
+  FaYoutube,
   FaArrowUp,
-  FaQrcode,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaEnvelope,
 } from 'react-icons/fa';
-import "./Footer.css";
+import './Footer.css';
+
+import logo from '../../assets/numeric.jpeg';
 
 const footerColumns = [
   {
-    title: 'About Us',
-    links: ['About Us', "Faq's", 'Our Team', 'Markets Place', 'Platform', 'Blog Grid', 'Contact Us'],
+    title: 'Quick Links',
+    links: [
+      { name: 'About Us', href: '/about' },
+      { name: 'Our Courses', href: '/courses' },
+      { name: 'Mentorship Program', href: '/mentorship' },
+      { name: 'Student Reviews', href: '/reviews' },
+      { name: 'Blog & Market Insights', href: '/blog' },
+      { name: 'Contact Us', href: '/contact' },
+    ],
   },
   {
-    title: 'Platforms',
-    links: ['Forex', 'Crypto CFDs', 'Share CFDs', 'Commodities', 'Spot Metals', 'Energies', 'MetaTrader 5'],
+    title: 'Trading Courses',
+    links: [
+      { name: 'Stock Market Basics', href: '/courses/basics' },
+      { name: 'Technical Analysis', href: '/courses/technical-analysis' },
+      { name: 'Options Trading', href: '/courses/options' },
+      { name: 'Forex & Commodity', href: '/courses/forex' },
+      { name: 'Price Action Trading', href: '/courses/price-action' },
+      { name: 'Risk Management', href: '/courses/risk-management' },
+    ],
   },
   {
-    title: 'Trading Tools',
-    links: ['FXT Navigator', 'Trading Central', 'Economic Calendar', 'Market Sentiment', 'API Trading', 'VPS', 'CDF Rollover'],
-  },
-  {
-    title: 'Support',
-    links: ['Legal Information', 'Privacy Policy', 'Regulations', 'Risk Disclaimer', 'Complaints Procedure', 'Company News', 'Trading Videos'],
+    title: 'Student Support',
+    links: [
+      { name: "FAQ's", href: '/faqs' },
+      { name: 'Terms & Conditions', href: '/terms' },
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Risk Disclaimer', href: '/disclaimer' },
+      { name: 'Refund Policy', href: '/refund-policy' },
+    ],
   },
 ];
 
 const paymentMethods = [
-  { label: 'AMEX', className: 'amex' },
+  { label: 'UPI', className: 'upi' },
   { label: 'VISA', className: 'visa' },
-  { label: 'PayPal', className: 'paypal' },
   { label: 'Mastercard', className: 'mastercard', isDots: true },
-  { label: 'DISCOVER', className: 'discover' },
+  { label: 'Razorpay', className: 'razorpay' },
   { label: 'G Pay', className: 'gpay' },
+  { label: 'Paytm', className: 'paytm' },
 ];
 
 const socialLinks = [
-  { icon: <FaFacebookF />, label: 'Facebook', href: '#' },
-  { icon: <FaTwitter />, label: 'Twitter', href: '#' },
-  { icon: <FaLinkedinIn />, label: 'LinkedIn', href: '#' },
-  { icon: <FaSkype />, label: 'Skype', href: '#' },
+  { icon: <FaFacebookF />, label: 'Facebook', href: 'https://facebook.com' },
+  { icon: <FaInstagram />, label: 'Instagram', href: 'https://instagram.com' },
+  { icon: <FaYoutube />, label: 'YouTube', href: 'https://youtube.com' },
+  { icon: <FaLinkedinIn />, label: 'LinkedIn', href: 'https://linkedin.com' },
+  { icon: <FaTwitter />, label: 'Twitter', href: 'https://twitter.com' },
 ];
-
-const storeBadges = [
-  { icon: <FaApple />, eyebrow: 'Download on the', title: 'App Store', modifier: 'apple' },
-  { icon: <FaWindows />, eyebrow: 'Get it from', title: 'Microsoft Store', modifier: 'windows' },
-  { icon: <FaAndroid />, eyebrow: 'Get it on', title: 'Google Play', modifier: 'android' },
-];
-
-// Deterministic pseudo-QR pattern — decorative only, not a scannable code.
-const qrCells = (() => {
-  const size = 9;
-  const seedRow = (r) => [1, 0, 1, 1, 0, 1, 0, 1, 1].map((v, i) => (v ^ ((r + i) % 3 === 0 ? 1 : 0)));
-  const cells = [];
-  for (let r = 0; r < size; r++) {
-    const row = seedRow(r);
-    row.forEach((v, c) => {
-      const isFinder =
-        (r < 3 && c < 3) || (r < 3 && c > size - 4) || (r > size - 4 && c < 3);
-      if (v || isFinder) cells.push({ r, c, on: isFinder ? (r === 1 && c === 1 ? 0 : 1) || true : !!v });
-    });
-  }
-  return cells;
-})();
-
-const FooterLogo = ({ className = '' }) => (
-  <svg className={className} viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
-    <circle cx="20" cy="20" r="20" fill="url(#footerLogoGrad)" />
-    <path
-      d="M10 25 L17 17 L21 21 L30 11"
-      fill="none"
-      stroke="#ffffff"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path d="M23 11 H30 V18" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-    <defs>
-      <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#25b869" />
-        <stop offset="100%" stopColor="#0f7a3d" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -98,20 +74,22 @@ const Footer = () => {
   };
 
   return (
-    <footer className="Footer">
+    <footer className="Footer" itemScope itemType="https://schema.org/EducationalOrganization">
       <div className="Footer-glow" aria-hidden="true" />
 
       <div className="Footer-container">
+        {/* Top Section */}
         <div className="Footer-top">
+          {/* Columns */}
           <div className="Footer-columns">
             {footerColumns.map((col) => (
               <div className="Footer-col" key={col.title}>
-                <h4 className="Footer-col-title">{col.title}</h4>
+                <h3 className="Footer-col-title">{col.title}</h3>
                 <ul className="Footer-col-list">
                   {col.links.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="Footer-link">
-                        {link}
+                    <li key={link.name}>
+                      <a href={link.href} className="Footer-link" title={link.name}>
+                        {link.name}
                       </a>
                     </li>
                   ))}
@@ -120,66 +98,51 @@ const Footer = () => {
             ))}
           </div>
 
-          <div className="Footer-promo">
-            <div className="Footer-promo-inner">
-              <div className="Footer-promo-brand">
-                <FooterLogo className="Footer-promo-logoMark" />
-                <span className="Footer-promo-logoText">
-                  For<strong>Tradex</strong>
-                </span>
+          {/* Contact Bar Below Columns */}
+          <div className="Footer-contactBar">
+            <div className="Footer-contactItem" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+              <FaMapMarkerAlt className="Footer-contactIcon" />
+              <div>
+                <strong>Head Office:</strong>
+                <span itemProp="streetAddress"> 511A, Grand Bazar, Bamphakuda, Phulnakhara</span>,{' '}
+                <span itemProp="addressLocality">Bhubaneswar</span>, <span itemProp="addressRegion">Odisha</span>{' '}
+                <span itemProp="postalCode">754001</span>
               </div>
+            </div>
 
-              <p className="Footer-promo-tagline">Trade multipliers on our app.</p>
-
-              <div className="Footer-promo-qrFrame">
-                <span className="Footer-promo-qrFrame-corner tl" />
-                <span className="Footer-promo-qrFrame-corner tr" />
-                <span className="Footer-promo-qrFrame-corner bl" />
-                <span className="Footer-promo-qrFrame-corner br" />
-
-                <div className="Footer-promo-qr" role="img" aria-label="QR code to download the app">
-                  <svg viewBox="0 0 9 9" className="Footer-promo-qr-svg">
-                    {qrCells.map(({ r, c, on }, i) =>
-                      on ? <rect key={i} x={c} y={r} width="1" height="1" className="Footer-promo-qr-cell" /> : null
-                    )}
-                  </svg>
-                  <span className="Footer-promo-qr-scanLine" aria-hidden="true" />
-                </div>
+            <div className="Footer-contactItem">
+              <FaPhoneAlt className="Footer-contactIcon" />
+              <div>
+                <strong>Call Us:</strong>{' '}
+                <a href="tel:+919938702775" itemProp="telephone" className="Footer-contactLink">
+                  +91 9938702775
+                </a>
               </div>
+            </div>
 
-              <span className="Footer-promo-qrCaption">
-                <FaQrcode /> Scan to download
-              </span>
-
-              <div className="Footer-promo-stores">
-                {storeBadges.map((store) => (
-                  <a
-                    key={store.title}
-                    href="#"
-                    className={`Footer-storeBadge Footer-storeBadge--${store.modifier}`}
-                  >
-                    <span className="Footer-storeBadge-icon">{store.icon}</span>
-                    <span className="Footer-storeBadge-text">
-                      <small>{store.eyebrow}</small>
-                      <strong>{store.title}</strong>
-                    </span>
-                  </a>
-                ))}
+            <div className="Footer-contactItem">
+              <FaEnvelope className="Footer-contactIcon" />
+              <div>
+                <strong>Email:</strong>{' '}
+                <a href="mailto:info@numericedge.in" itemProp="email" className="Footer-contactLink">
+                  info@numericedge.in
+                </a>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Mid Section - Brand Info & Payment Options */}
         <div className="Footer-mid">
           <div className="Footer-brand">
-            <FooterLogo className="Footer-brand-logoMark" />
-            <span className="Footer-brand-text">
-              For<strong>Tradex</strong>
+            <img src={logo} alt="Numeric Edge Trading Academy" className="Footer-brand-logoImg" />
+            <span className="Footer-brand-text" itemProp="name">
+              Numeric Edge <strong>Trading Academy</strong>
             </span>
           </div>
 
           <div className="Footer-payments">
-            <span className="Footer-payments-label">We Accept:</span>
+            <span className="Footer-payments-label">Supported Payment Modes:</span>
             <div className="Footer-payments-icons">
               {paymentMethods.map((method) => (
                 <span key={method.label} className={`Footer-paymentBadge Footer-paymentBadge--${method.className}`}>
@@ -197,18 +160,25 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Bottom Bar */}
       <div className="Footer-bottomBar">
         <div className="Footer-container Footer-bottomBar-inner">
           <p className="Footer-copyright">
-            Copyright &copy; 2007-{year}
-            <span className="Footer-brand-name"> ForTradex</span>. All rights reserved.
+            Copyright &copy; {year} <span className="Footer-brand-name" itemProp="legalName">Numeric Edge Trading Academy</span>. All Rights Reserved.
           </p>
 
           <div className="Footer-social">
-            <span className="Footer-social-label">Follow Us On:</span>
+            <span className="Footer-social-label">Follow Us:</span>
             <div className="Footer-social-icons">
               {socialLinks.map((social) => (
-                <a key={social.label} href={social.href} className="Footer-social-icon" aria-label={social.label}>
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="Footer-social-icon"
+                  aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {social.icon}
                 </a>
               ))}

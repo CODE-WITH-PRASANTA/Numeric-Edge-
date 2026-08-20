@@ -1,37 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../../assets/numeric.jpeg'; // अपनी लोगो इमेज का सही Path यहाँ सेट करें
 import './Navbar.css';
 
+// Match these paths EXACTLY with App.js routes
 const navLinks = [
   { label: 'Home', path: '/', end: true },
+  { label: 'Courses', path: '/courses' },
   { label: 'Trading', path: '/trading' },
-  { label: 'Market', path: '/market' },
-  { label: 'About Us', path: '/about' },
+  { label: 'About Us', path: '/about-us' },
+  { label: 'Our Courses', path: '/education' },
+  { label: 'Our Team', path: '/our-team' },
   { label: 'Blog', path: '/blog' },
+  { label: 'FAQs', path: '/faqs' },
   { label: 'Contact', path: '/contact' },
 ];
-
-const NavbarLogo = ({ className = '' }) => (
-  <svg className={className} viewBox="0 0 40 40" width="38" height="38" aria-hidden="true">
-    <circle cx="20" cy="20" r="20" fill="url(#navbarLogoGrad)" />
-    <path
-      d="M10 25 L17 17 L21 21 L30 11"
-      fill="none"
-      stroke="#ffffff"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path d="M23 11 H30 V18" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-    <defs>
-      <linearGradient id="navbarLogoGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#25b869" />
-        <stop offset="100%" stopColor="#0f7a3d" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +26,7 @@ const Navbar = () => {
   const searchInputRef = useRef(null);
   const searchWrapRef = useRef(null);
 
-  // Shadow / condensed state once the page scrolls
+  // Scroll handle for dynamic styles
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 12);
     handleScroll();
@@ -50,7 +34,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll while the mobile drawer is open
+  // Lock body scroll during mobile drawer state
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? 'hidden' : '';
     return () => {
@@ -58,7 +42,7 @@ const Navbar = () => {
     };
   }, [isMobileOpen]);
 
-  // Focus the search input when it opens, close it on outside click
+  // Handle Search Input Focus & Outside Click
   useEffect(() => {
     if (isSearchOpen) {
       searchInputRef.current?.focus();
@@ -76,7 +60,6 @@ const Navbar = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // Hook up real search navigation/query here
   };
 
   const closeMobileMenu = () => setIsMobileOpen(false);
@@ -84,13 +67,13 @@ const Navbar = () => {
   return (
     <header className={`Navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="Navbar-container">
+        
+        {/* Brand Logo Only (Without Text) */}
         <NavLink to="/" className="Navbar-brand" onClick={closeMobileMenu}>
-          <NavbarLogo className="Navbar-brand-logo" />
-          <span className="Navbar-brand-text">
-            For<strong>Tradex</strong>
-          </span>
+          <img src={logo} alt="Trading Academy Logo" className="Navbar-logo-img" />
         </NavLink>
 
+        {/* Navigation Links */}
         <nav className="Navbar-links" aria-label="Primary">
           {navLinks.map((link) => (
             <NavLink
@@ -104,6 +87,7 @@ const Navbar = () => {
           ))}
         </nav>
 
+        {/* Action Controls */}
         <div className="Navbar-actions">
           <div className={`Navbar-search ${isSearchOpen ? 'open' : ''}`} ref={searchWrapRef}>
             <form onSubmit={handleSearchSubmit} className="Navbar-search-form">
@@ -126,6 +110,10 @@ const Navbar = () => {
             </button>
           </div>
 
+          <NavLink to="/courses" className="Navbar-cta">
+            Start Learning
+          </NavLink>
+
           <button
             type="button"
             className="Navbar-burger"
@@ -137,13 +125,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile Overlay & Drawer */}
       <div className={`Navbar-overlay ${isMobileOpen ? 'visible' : ''}`} onClick={closeMobileMenu} />
       <div className={`Navbar-drawer ${isMobileOpen ? 'open' : ''}`}>
         <div className="Navbar-drawer-header">
-          <span className="Navbar-brand-text">
-            For<strong>Tradex</strong>
-          </span>
+          <NavLink to="/" className="Navbar-brand" onClick={closeMobileMenu}>
+            <img src={logo} alt="Trading Academy Logo" className="Navbar-logo-img drawer-logo" />
+          </NavLink>
           <button type="button" className="Navbar-drawer-close" onClick={closeMobileMenu} aria-label="Close menu">
             <FaTimes />
           </button>
@@ -162,6 +150,12 @@ const Navbar = () => {
             </NavLink>
           ))}
         </nav>
+
+        <div className="Navbar-drawer-cta-wrap">
+          <NavLink to="/courses" className="Navbar-cta Navbar-drawer-cta" onClick={closeMobileMenu}>
+            Start Learning
+          </NavLink>
+        </div>
       </div>
     </header>
   );

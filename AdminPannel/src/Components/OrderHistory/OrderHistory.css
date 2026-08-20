@@ -1,0 +1,289 @@
+/* Component Scoped Styles matching OrderHistory */
+.OrderHistory {
+  background-color: #0b0f17;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Utilities */
+.positive {
+  color: #10b981 !important;
+}
+
+.negative {
+  color: #ef4444 !important;
+}
+
+.warning {
+  color: #f59e0b !important;
+}
+
+/* Header Area */
+.OrderHistory-header-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.OrderHistory-title-group h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.OrderHistory-title-group p {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.OrderHistory-action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.OrderHistory-btn-outline, .OrderHistory-btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.OrderHistory-btn-outline {
+  background: #141b2d;
+  border: 1px solid #2d3748;
+  color: #ffffff;
+}
+
+.OrderHistory-btn-outline:hover {
+  background: #1f293d;
+}
+
+.OrderHistory-btn-primary {
+  background: #10b981;
+  border: none;
+  color: #ffffff;
+}
+
+.OrderHistory-btn-primary:hover {
+  background: #059669;
+}
+
+/* Metrics Grid */
+.OrderHistory-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.OrderHistory-metric-card {
+  background: #141b2d;
+  border: 1px solid #1f293d;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-title {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.metric-sub {
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Main Container Card */
+.OrderHistory-card {
+  background: #141b2d;
+  border: 1px solid #1f293d;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.OrderHistory-controls-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.OrderHistory-controls-flex h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.OrderHistory-filters-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.OrderHistory-filter-dropdown select {
+  background: #0b0f17;
+  border: 1px solid #2d3748;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.OrderHistory-search-box {
+  display: flex;
+  align-items: center;
+  background: #0b0f17;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+.OrderHistory-search-box svg {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.OrderHistory-search-box input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 8px 10px;
+  outline: none;
+  font-size: 13px;
+  width: 170px;
+}
+
+/* Table Design */
+.OrderHistory-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.OrderHistory-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.OrderHistory-table th {
+  color: #9ca3af;
+  font-weight: 600;
+  padding: 12px 10px;
+  border-bottom: 1px solid #1f293d;
+  white-space: nowrap;
+}
+
+.OrderHistory-table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #1a2234;
+  color: #f3f4f6;
+  white-space: nowrap;
+}
+
+.OrderHistory-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.order-id-cell {
+  color: #38bdf8;
+}
+
+.timestamp-cell {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.symbol-cell {
+  color: #ffffff;
+}
+
+/* Badges & Pills */
+.side-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.side-badge.buy {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.side-badge.sell {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.type-pill {
+  background: #1f293d;
+  color: #9ca3af;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.executed {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.status-badge.partially-filled {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.status-badge.cancelled {
+  background-color: rgba(156, 163, 175, 0.1);
+  color: #9ca3af;
+}
+
+.status-badge.rejected {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
