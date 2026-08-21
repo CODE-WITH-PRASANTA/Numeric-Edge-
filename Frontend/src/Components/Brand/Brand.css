@@ -25,7 +25,7 @@
   gap: 65px;
   width: max-content;
   /* Right to Left Motion Animation */
-  animation: moveRightToLeft 20s linear infinite;
+  animation: moveRightToLeft 25s linear infinite;
 }
 
 /* माउस होवर करने पर स्लाइडर पॉज़ होगा */
@@ -77,5 +77,34 @@
   .brand-logo {
     height: 22px;
     max-width: 100px;
+  }
+}.brand-name {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #111827;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Larger brand name on desktop */
+@media (min-width: 901px) {
+  .brand-name {
+    font-size: 26px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .brand-name {
+    font-size: 21px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .brand-name {
+    font-size: 18px;
   }
 }

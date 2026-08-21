@@ -1,160 +1,115 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../../assets/numeric.jpeg'; // अपनी लोगो इमेज का सही Path यहाँ सेट करें
+// Navbar.jsx
+import React, { useState } from 'react';
+import { FiSearch, FiArrowRight, FiMenu, FiX } from 'react-icons/fi';
 import './Navbar.css';
 
-// Match these paths EXACTLY with App.js routes
+// Import your logo image asset here
+import logoImg from "../../assets/numeric.jpeg";
+
 const navLinks = [
-  { label: 'Home', path: '/', end: true },
-  { label: 'Courses', path: '/courses' },
-  { label: 'Trading', path: '/trading' },
-  { label: 'About Us', path: '/about-us' },
-  { label: 'Our Courses', path: '/education' },
-  { label: 'Our Team', path: '/our-team' },
-  { label: 'Blog', path: '/blog' },
-  { label: 'FAQs', path: '/faqs' },
-  { label: 'Contact', path: '/contact' },
+  { name: 'Home', href: '#' },
+  { name: 'Courses', href: '#' },
+  { name: 'Trading', href: '#' },
+  { name: 'About Us', href: '#' },
+  { name: 'Our Courses', href: '#' },
+  { name: 'Our Team', href: '#' },
+  { name: 'Blog', href: '#' },
+  { name: 'FAQs', href: '#' },
+  { name: 'Contact', href: '#' },
 ];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
+  const [activeItem, setActiveItem] = useState('Home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const searchInputRef = useRef(null);
-  const searchWrapRef = useRef(null);
-
-  // Scroll handle for dynamic styles
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 12);
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Lock body scroll during mobile drawer state
-  useEffect(() => {
-    document.body.style.overflow = isMobileOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileOpen]);
-
-  // Handle Search Input Focus & Outside Click
-  useEffect(() => {
-    if (isSearchOpen) {
-      searchInputRef.current?.focus();
-    }
-
-    const handleClickOutside = (e) => {
-      if (searchWrapRef.current && !searchWrapRef.current.contains(e.target)) {
-        setIsSearchOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isSearchOpen]);
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const closeMobileMenu = () => setIsMobileOpen(false);
+  const handleLinkClick = (name) => {
+    setActiveItem(name);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <header className={`Navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="Navbar-container">
-        
-        {/* Brand Logo Only (Without Text) */}
-        <NavLink to="/" className="Navbar-brand" onClick={closeMobileMenu}>
-          <img src={logo} alt="Trading Academy Logo" className="Navbar-logo-img" />
-        </NavLink>
+    <header className="Navbar">
+      <div className="Navbar__container">
+        {/* Brand / Logo */}
+        <a href="#" className="Navbar__logo-wrapper">
+          <img src={logoImg} alt="NumericEdge Trading Academy" className="Navbar__logo-img" />
+          <div className="Navbar__brand-text">
+           
+          </div>
+        </a>
 
-        {/* Navigation Links */}
-        <nav className="Navbar-links" aria-label="Primary">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              end={link.end}
-              className={({ isActive }) => `Navbar-pill ${isActive ? 'active' : ''}`}
-            >
-              {link.label}
-            </NavLink>
-          ))}
+        {/* Desktop Navigation Links */}
+        <nav className="Navbar__nav">
+          <ul className="Navbar__nav-list">
+            {navLinks.map((link) => (
+              <li key={link.name} className="Navbar__nav-item">
+                <a
+                  href={link.href}
+                  className={`Navbar__nav-link ${activeItem === link.name ? 'Navbar__nav-link--active' : ''}`}
+                  onClick={() => handleLinkClick(link.name)}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
 
-        {/* Action Controls */}
-        <div className="Navbar-actions">
-          <div className={`Navbar-search ${isSearchOpen ? 'open' : ''}`} ref={searchWrapRef}>
-            <form onSubmit={handleSearchSubmit} className="Navbar-search-form">
-              <input
-                ref={searchInputRef}
-                type="text"
-                className="Navbar-search-input"
-                placeholder="Search..."
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-              />
-            </form>
-            <button
-              type="button"
-              className="Navbar-searchToggle"
-              onClick={() => setIsSearchOpen((prev) => !prev)}
-              aria-label="Toggle search"
-            >
-              <FaSearch />
-            </button>
-          </div>
+        {/* Right Actions */}
+        <div className="Navbar__actions">
+          <button type="button" className="Navbar__search-btn" aria-label="Search">
+            <FiSearch className="Navbar__search-icon" />
+          </button>
 
-          <NavLink to="/courses" className="Navbar-cta">
-            Start Learning
-          </NavLink>
+          <a href="#login" className="Navbar__login-link">
+            Log in
+          </a>
 
+          <a href="#start-learning" className="Navbar__cta-btn">
+            <span>Start Learning</span>
+            <FiArrowRight className="Navbar__cta-icon" />
+          </a>
+
+          {/* Mobile Hamburger Toggle */}
           <button
             type="button"
-            className="Navbar-burger"
-            onClick={() => setIsMobileOpen(true)}
-            aria-label="Open menu"
+            className="Navbar__mobile-toggle"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle navigation menu"
           >
-            <FaBars />
+            {isMobileMenuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Overlay & Drawer */}
-      <div className={`Navbar-overlay ${isMobileOpen ? 'visible' : ''}`} onClick={closeMobileMenu} />
-      <div className={`Navbar-drawer ${isMobileOpen ? 'open' : ''}`}>
-        <div className="Navbar-drawer-header">
-          <NavLink to="/" className="Navbar-brand" onClick={closeMobileMenu}>
-            <img src={logo} alt="Trading Academy Logo" className="Navbar-logo-img drawer-logo" />
-          </NavLink>
-          <button type="button" className="Navbar-drawer-close" onClick={closeMobileMenu} aria-label="Close menu">
-            <FaTimes />
-          </button>
-        </div>
-
-        <nav className="Navbar-drawer-links" aria-label="Mobile">
+      {/* Mobile Drawer Navigation */}
+      <div className={`Navbar__mobile-drawer ${isMobileMenuOpen ? 'Navbar__mobile-drawer--open' : ''}`}>
+        <ul className="Navbar__mobile-nav-list">
           {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              end={link.end}
-              onClick={closeMobileMenu}
-              className={({ isActive }) => `Navbar-drawer-link ${isActive ? 'active' : ''}`}
-            >
-              {link.label}
-            </NavLink>
+            <li key={link.name}>
+              <a
+                href={link.href}
+                className={`Navbar__mobile-nav-link ${activeItem === link.name ? 'Navbar__mobile-nav-link--active' : ''}`}
+                onClick={() => handleLinkClick(link.name)}
+              >
+                {link.name}
+              </a>
+            </li>
           ))}
-        </nav>
+        </ul>
 
-        <div className="Navbar-drawer-cta-wrap">
-          <NavLink to="/courses" className="Navbar-cta Navbar-drawer-cta" onClick={closeMobileMenu}>
-            Start Learning
-          </NavLink>
+        <div className="Navbar__mobile-actions">
+          <a href="#login" className="Navbar__mobile-login-link" onClick={() => setIsMobileMenuOpen(false)}>
+            Log in
+          </a>
+          <a href="#start-learning" className="Navbar__mobile-cta-btn" onClick={() => setIsMobileMenuOpen(false)}>
+            <span>Start Learning</span>
+            <FiArrowRight />
+          </a>
         </div>
       </div>
     </header>

@@ -18,12 +18,16 @@ const footerColumns = [
   {
     title: 'Quick Links',
     links: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Courses', href: '/courses' },
-      { name: 'Mentorship Program', href: '/mentorship' },
+      { name: 'Home', href: '/about' },
+      { name: 'Courses', href: '/courses' },
+      { name: 'Trading', href: '/trading' },
       { name: 'Student Reviews', href: '/reviews' },
-      { name: 'Blog & Market Insights', href: '/blog' },
-      { name: 'Contact Us', href: '/contact' },
+      { name: 'About us', href: '/about' },
+      { name: 'Our Team', href: '/Ourteam' },
+      { name: 'Blog', href: '/blog' },
+      { name: 'Faq', href: '/faq' },
+      { name: 'Contact', href: '/contact' },
+
     ],
   },
   {
@@ -34,7 +38,8 @@ const footerColumns = [
       { name: 'Options Trading', href: '/courses/options' },
       { name: 'Forex & Commodity', href: '/courses/forex' },
       { name: 'Price Action Trading', href: '/courses/price-action' },
-      { name: 'Risk Management', href: '/courses/risk-management' },
+      { name: 'Risk Management', href: '/courses/risk-management' }, { name: "Trading Psychology", href: "/courses/trading-psychology" },
+      { name: "Algorithmic Trading", href: "/courses/algorithmic-trading" },
     ],
   },
   {
