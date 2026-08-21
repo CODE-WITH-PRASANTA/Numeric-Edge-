@@ -26,6 +26,8 @@ import Bloggrids from "./Pages/Bloggrids/Bloggrids";
 import Blogdetails from "./Pages/Blogdetails/Blogdetails";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import FaqSection from "./Components/FaqSection/FaqSection";
+import TermandConditions from "./Pages/TermandConditions/TermandConditions";
+import PrivacyPolicy from "./Components/PrivacyPolicy/PrivacyPolicy";
 
 const App = () => {
   // AUTHENTICATION STATE
@@ -164,7 +166,8 @@ const App = () => {
             </Protectrouter>
           }
         />
-
+        <Route path="/terms" element={<TermandConditions/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         {/* CATCH ALL ROUTE */}
         <Route
           path="*"

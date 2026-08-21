@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaFacebookF,
   FaTwitter,
@@ -18,6 +19,7 @@ const footerColumns = [
   {
     title: 'Quick Links',
     links: [
+<<<<<<< HEAD
       { name: 'Home', href: '/about' },
       { name: 'Courses', href: '/courses' },
       { name: 'Trading', href: '/trading' },
@@ -28,11 +30,20 @@ const footerColumns = [
       { name: 'Faq', href: '/faq' },
       { name: 'Contact', href: '/contact' },
 
+=======
+      { name: 'About Us', href: '/about-us' },
+      { name: 'Our Courses', href: '/education' },
+      { name: 'Mentorship Program', href: '/education' },
+      { name: 'Student Reviews', href: '/faqs' },
+      { name: 'Blog & Market Insights', href: '/blog' },
+      { name: 'Contact Us', href: '/contact' },
+>>>>>>> 76c3343ade6dd6caf5669d10cda67d9d5901eab1
     ],
   },
   {
     title: 'Trading Courses',
     links: [
+<<<<<<< HEAD
       { name: 'Stock Market Basics', href: '/courses/basics' },
       { name: 'Technical Analysis', href: '/courses/technical-analysis' },
       { name: 'Options Trading', href: '/courses/options' },
@@ -40,16 +51,24 @@ const footerColumns = [
       { name: 'Price Action Trading', href: '/courses/price-action' },
       { name: 'Risk Management', href: '/courses/risk-management' }, { name: "Trading Psychology", href: "/courses/trading-psychology" },
       { name: "Algorithmic Trading", href: "/courses/algorithmic-trading" },
+=======
+      { name: 'Stock Market Basics', href: '/education' },
+      { name: 'Technical Analysis', href: '/education' },
+      { name: 'Options Trading', href: '/education' },
+      { name: 'Forex & Commodity', href: '/education' },
+      { name: 'Price Action Trading', href: '/education' },
+      { name: 'Risk Management', href: '/education' },
+>>>>>>> 76c3343ade6dd6caf5669d10cda67d9d5901eab1
     ],
   },
   {
     title: 'Student Support',
     links: [
       { name: "FAQ's", href: '/faqs' },
-      { name: 'Terms & Conditions', href: '/terms' },
-      { name: 'Privacy Policy', href: '/privacy-policy' },
-      { name: 'Risk Disclaimer', href: '/disclaimer' },
-      { name: 'Refund Policy', href: '/refund-policy' },
+      { name: 'Terms & Conditions', href: '/faqs' },
+      { name: 'Privacy Policy', href: '/faqs' },
+      { name: 'Risk Disclaimer', href: '/faqs' },
+      { name: 'Refund Policy', href: '/faqs' },
     ],
   },
 ];
@@ -93,9 +112,9 @@ const Footer = () => {
                 <ul className="Footer-col-list">
                   {col.links.map((link) => (
                     <li key={link.name}>
-                      <a href={link.href} className="Footer-link" title={link.name}>
+                      <Link to={link.href} className="Footer-link" title={link.name}>
                         {link.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -169,7 +188,18 @@ const Footer = () => {
       <div className="Footer-bottomBar">
         <div className="Footer-container Footer-bottomBar-inner">
           <p className="Footer-copyright">
-            Copyright &copy; {year} <span className="Footer-brand-name" itemProp="legalName">Numeric Edge Trading Academy</span>. All Rights Reserved.
+            © {year} Developed By{' '}
+            <a
+              href="https://prwebstock.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="Footer-brand-name"
+              itemProp="legalName"
+              style={{ textDecoration: 'none' }}
+            >
+              PR Webstock
+            </a>
+            . All Rights Reserved.
           </p>
 
           <div className="Footer-social">
@@ -189,12 +219,18 @@ const Footer = () => {
               ))}
             </div>
           </div>
-
-          <button type="button" className="Footer-scrollTop" onClick={scrollToTop} aria-label="Scroll to top">
-            <FaArrowUp />
-          </button>
         </div>
       </div>
+
+      {/* Scroll To Top Button */}
+      <button
+        type="button"
+        className="Footer-scrollTop"
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp />
+      </button>
     </footer>
   );
 };

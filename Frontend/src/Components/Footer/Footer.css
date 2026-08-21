@@ -348,3 +348,14 @@
     text-align: center;
   }
 }
+
+.Footer-brand-name {
+  color: green;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.Footer-brand-name:hover {
+  color: black; 
+  text-decoration: underline;
+}

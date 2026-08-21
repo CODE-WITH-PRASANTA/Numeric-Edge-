@@ -3,14 +3,18 @@
   top: 0;
   left: 260px;
   right: 0;
-  height: 70px;
-  background: #111827;
+  height: 75px;
+  /* Premium Light Background matching Sidebar */
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
   z-index: 900;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  /* 3D Soft Shadow & Glassmorphism Blur */
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
   transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -25,34 +29,40 @@
   gap: 16px;
 }
 
+/* 3D Interactive Buttons with Light Green Hover */
 .TopbarToggleBtn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #9ca3af;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #334155;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
 }
 
 .TopbarToggleBtn:hover {
-  background: rgba(0, 210, 255, 0.1);
-  color: #00d2ff;
-  border-color: rgba(0, 210, 255, 0.2);
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -3px rgba(16, 185, 129, 0.25);
 }
 
+/* Ticker Bar with 3D Inset Depth */
 .TopbarTickerContainer {
   display: flex;
   align-items: center;
   gap: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 6px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .TickerItem {
@@ -63,15 +73,16 @@
 }
 
 .TickerSymbol {
-  color: #9ca3af;
+  color: #64748b;
   font-weight: 600;
 }
 
 .TickerPrice.positive {
-  color: #10b981;
+  color: #059669;
   font-weight: 700;
 }
 
+/* 3D Search Box */
 .TopbarSearchBox {
   position: relative;
   display: flex;
@@ -80,26 +91,30 @@
 
 .SearchIcon {
   position: absolute;
-  left: 12px;
-  color: #6b7280;
+  left: 14px;
+  color: #059669;
+  transition: filter 0.2s;
 }
 
 .TopbarSearchInput {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 8px 12px 8px 36px;
-  border-radius: 8px;
-  color: #fff;
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 14px 10px 40px;
+  border-radius: 12px;
+  color: #0f172a;
   font-size: 0.85rem;
   width: 220px;
   outline: none;
-  transition: all 0.2s;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
 .TopbarSearchInput:focus {
-  border-color: #00d2ff;
-  width: 260px;
-  background: rgba(0, 210, 255, 0.02);
+  border-color: #10b981;
+  width: 270px;
+  background: #ffffff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02),
+              0 0 15px rgba(16, 185, 129, 0.15);
 }
 
 .TopbarActionWrapper {
@@ -108,48 +123,56 @@
 
 .TopbarActionBtn {
   position: relative;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #9ca3af;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #334155;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
 }
 
 .TopbarActionBtn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -3px rgba(16, 185, 129, 0.25);
 }
 
+/* Badge Indicator */
 .ActionBadge {
   position: absolute;
-  top: -4px;
-  right: -4px;
+  top: -3px;
+  right: -3px;
   background: #ef4444;
-  color: #fff;
+  color: #ffffff;
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 2px 6px;
   border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+  border: 2px solid #ffffff;
 }
 
-/* Notification Popup Card */
+/* 3D Notification Popup Card */
 .NotificationPopupCard {
   position: absolute;
   right: 0;
-  top: 50px;
-  width: 320px;
-  background: #1f2937;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  top: 55px;
+  width: 330px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1),
+              0 0 15px rgba(16, 185, 129, 0.05);
   overflow: hidden;
-  animation: dropdownFade 0.2s ease-in-out;
+  animation: dropdownFade 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
 }
 
@@ -157,21 +180,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(0, 0, 0, 0.1);
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: #f8fafc;
 }
 
 .PopupHeader h4 {
   font-size: 0.9rem;
-  color: #fff;
+  color: #0f172a;
   margin: 0;
+  font-weight: 700;
 }
 
 .MarkRead {
   font-size: 0.75rem;
-  color: #00d2ff;
+  color: #059669;
   cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.MarkRead:hover {
+  opacity: 0.8;
 }
 
 .PopupBody {
@@ -182,61 +212,65 @@
 .NotificationItem {
   display: flex;
   gap: 12px;
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  transition: background 0.2s;
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.2s;
 }
 
 .NotificationItem:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: #f0fdf4;
 }
 
 .NotificationContent p {
   font-size: 0.82rem;
-  color: #d1d5db;
+  color: #334155;
   margin: 0 0 4px 0;
 }
 
 .NotificationTime {
   font-size: 0.7rem;
-  color: #6b7280;
+  color: #94a3b8;
 }
 
 .PopupFooter {
-  padding: 10px;
+  padding: 12px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f8fafc;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .PopupFooter a {
   font-size: 0.8rem;
-  color: #00d2ff;
+  color: #059669;
   text-decoration: none;
+  font-weight: 600;
 }
 
-/* Profile Section Trigger & Dropdown */
+/* Profile Section Trigger & 3D Dropdown */
 .TopbarProfileTrigger {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 8px;
-  transition: background 0.2s;
+  padding: 6px 10px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
 }
 
 .TopbarProfileTrigger:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.06);
 }
 
 .ProfileAvatar {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid rgba(0, 210, 255, 0.3);
+  border: 2px solid #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
 }
 
 .ProfileAvatar img {
@@ -252,7 +286,7 @@
   width: 10px;
   height: 10px;
   background: #10b981;
-  border: 2px solid #111827;
+  border: 2px solid #ffffff;
   border-radius: 50%;
 }
 
@@ -262,51 +296,53 @@
 }
 
 .ProfileName {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
 }
 
 .ProfileRole {
   font-size: 0.7rem;
-  color: #9ca3af;
+  color: #059669;
+  font-weight: 600;
 }
 
+/* 3D Profile Dropdown Card */
 .ProfileDropdownCard {
   position: absolute;
   right: 0;
-  top: 50px;
-  width: 220px;
-  background: #1f2937;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  top: 55px;
+  width: 230px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  animation: dropdownFade 0.2s ease-in-out;
+  animation: dropdownFade 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
 }
 
 .ProfileDropdownHeader {
-  padding: 14px 16px;
-  background: rgba(0, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .DropdownUserName {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 0;
 }
 
 .DropdownUserEmail {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: #64748b;
   margin: 2px 0 0 0;
 }
 
 .ProfileDropdownList {
-  padding: 6px;
+  padding: 8px;
 }
 
 .DropdownItem {
@@ -314,35 +350,47 @@
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  color: #d1d5db;
+  color: #334155;
   text-decoration: none;
   font-size: 0.85rem;
-  border-radius: 6px;
-  transition: all 0.2s;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .DropdownItem:hover {
-  background: rgba(0, 210, 255, 0.1);
-  color: #00d2ff;
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #065f46;
+  font-weight: 600;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
 }
 
 .DropdownDivider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   margin: 6px 0;
 }
 
 .LogoutItem:hover {
-  background: rgba(255, 75, 75, 0.1);
-  color: #ff4b4b;
+  background: #fee2e2;
+  color: #991b1b;
+  transform: translateX(4px);
+  box-shadow: none;
 }
 
 @keyframes dropdownFade {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(-10px) scale(0.98); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
 }
 
-.text-positive { color: #10b981; }
+.text-positive { color: #059669; }
 .text-warning { color: #f59e0b; }
 
 @media (max-width: 768px) {
