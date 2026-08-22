@@ -1,30 +1,69 @@
-import React from 'react';
-import './Brand.css';
+import React from "react";
+import "./Brand.css";
 
 const brandsList = [
-  { name: 'HITACHI', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Hitachi_logo.svg' },
-  { name: 'HUAWEI', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Huawei_Logo.svg' },
-  { name: 'NOKIA', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg' },
-  { name: 'verizon', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Verizon_2015_logo.svg' },
-  { name: 'BÖHLER', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Bohler_Logo.svg' },
-  { name: 'Lenovo', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg' },
-  { name: 'NVIDIA', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg' }
+  {
+    name: "HITACHI",
+    logo: "https://cdn.simpleicons.org/hitachi",
+  },
+  {
+    name: "HUAWEI",
+    logo: "https://cdn.simpleicons.org/huawei",
+  },
+  {
+    name: "NOKIA",
+    logo: "https://cdn.simpleicons.org/nokia",
+  },
+  {
+    name: "VERIZON",
+    logo: "https://cdn.simpleicons.org/verizon",
+  },
+  {
+    name: "BÖHLER",
+    logo: "https://cdn.simpleicons.org/bohler",
+  },
+  {
+    name: "LENOVO",
+    logo: "https://cdn.simpleicons.org/lenovo",
+  },
+  {
+    name: "NVIDIA",
+    logo: "https://cdn.simpleicons.org/nvidia",
+  },
 ];
 
 const Brand = () => {
+  // Duplicate the brands to create a seamless infinite marquee
+  const marqueeBrands = [...brandsList, ...brandsList];
+
   return (
-    <div className="brand-section">
+    <section className="brand-section">
       <div className="brand-marquee-container">
-        {/* Infinite Back to Back Loop के लिए ट्रैक */}
         <div className="brand-track">
-          {[...brandsList, ...brandsList].map((brand, index) => (
-            <div key={index} className="brand-item">
-              <img src={brand.logo} alt={brand.name} className="brand-logo" />
+          {marqueeBrands.map((brand, index) => (
+            <div
+              className="brand-item"
+              key={`${brand.name}-${index}`}
+            >
+              <img
+                src={brand.logo}
+                alt={`${brand.name} logo`}
+                className="brand-logo"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+
+              {/* Brand name appears if image doesn't load */}
+              <span className="brand-name">
+                {brand.name}
+              </span>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

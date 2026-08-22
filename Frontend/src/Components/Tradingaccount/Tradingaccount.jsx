@@ -56,7 +56,7 @@ const Tradingaccount = () => {
       {/* Top Torn Paper Border Accent */}
       <div
         className="torn-divider top-divider"
-        style={{ backgroundImage: `url(${Shape9})` }}
+       
       />
 
       <div className="trading-account-container">
@@ -90,7 +90,6 @@ const Tradingaccount = () => {
       {/* Bottom Torn Paper Border Accent */}
       <div
         className="torn-divider bottom-divider"
-        style={{ backgroundImage: `url(${Shape9})` }}
       />
     </section>
   );

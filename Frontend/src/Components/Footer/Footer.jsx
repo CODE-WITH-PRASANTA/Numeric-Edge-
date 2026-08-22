@@ -19,23 +19,46 @@ const footerColumns = [
   {
     title: 'Quick Links',
     links: [
+<<<<<<< HEAD
+      { name: 'Home', href: '/about' },
+      { name: 'Courses', href: '/courses' },
+      { name: 'Trading', href: '/trading' },
+      { name: 'Student Reviews', href: '/reviews' },
+      { name: 'About us', href: '/about' },
+      { name: 'Our Team', href: '/Ourteam' },
+      { name: 'Blog', href: '/blog' },
+      { name: 'Faq', href: '/faq' },
+      { name: 'Contact', href: '/contact' },
+
+=======
       { name: 'About Us', href: '/about-us' },
       { name: 'Our Courses', href: '/education' },
       { name: 'Mentorship Program', href: '/education' },
       { name: 'Student Reviews', href: '/faqs' },
       { name: 'Blog & Market Insights', href: '/blog' },
       { name: 'Contact Us', href: '/contact' },
+>>>>>>> 76c3343ade6dd6caf5669d10cda67d9d5901eab1
     ],
   },
   {
     title: 'Trading Courses',
     links: [
+<<<<<<< HEAD
+      { name: 'Stock Market Basics', href: '/courses/basics' },
+      { name: 'Technical Analysis', href: '/courses/technical-analysis' },
+      { name: 'Options Trading', href: '/courses/options' },
+      { name: 'Forex & Commodity', href: '/courses/forex' },
+      { name: 'Price Action Trading', href: '/courses/price-action' },
+      { name: 'Risk Management', href: '/courses/risk-management' }, { name: "Trading Psychology", href: "/courses/trading-psychology" },
+      { name: "Algorithmic Trading", href: "/courses/algorithmic-trading" },
+=======
       { name: 'Stock Market Basics', href: '/education' },
       { name: 'Technical Analysis', href: '/education' },
       { name: 'Options Trading', href: '/education' },
       { name: 'Forex & Commodity', href: '/education' },
       { name: 'Price Action Trading', href: '/education' },
       { name: 'Risk Management', href: '/education' },
+>>>>>>> 76c3343ade6dd6caf5669d10cda67d9d5901eab1
     ],
   },
   {
