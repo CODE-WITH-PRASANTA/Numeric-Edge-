@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import MainLayout from "./Layout/MainLayout/MainLayout";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -11,7 +11,6 @@ import Riskmanagement from "./Components/Riskmanagement/Riskmanagement";
 import Settings from "./Components/Settings/Settings";
 import Loginform from "./Components/Loginform/Loginform";
 
-
 const ProtectedRoute = ({ isAuthenticated }) => {
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
@@ -20,7 +19,6 @@ const ProtectedRoute = ({ isAuthenticated }) => {
 };
 
 const App = () => {
-  // Initialize state from localStorage so it survives page reloads
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem("isAuthenticated") === "true";
   });
@@ -30,7 +28,6 @@ const App = () => {
     setIsAuthenticated(true);
   };
 
-  // Optional logout helper if you need it later
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
     setIsAuthenticated(false);
@@ -39,41 +36,34 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route 
-          path="/login" 
+        {/* Public Route */}
+        <Route
+          path="/login"
           element={
             isAuthenticated ? (
               <Navigate to="/dashboard" replace />
             ) : (
               <Loginform onLoginSuccess={handleLoginSuccess} />
             )
-          } 
+          }
         />
 
-        {/* MainLayout acts as the persistent wrapper containing the Sidebar and Topbar */}
-        <Route element={<MainLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/markets" element={<LiveMarkets/>}/>
-          <Route path="/trade" element={<TradeTerminal/>}/>
-          <Route path="/portfolio" element={<Portfolio/>}/>
-          <Route path="/transactions" element={<Transactions/>}/>
-          <Route path="/history" element={<OrderHistory/>}/>
-          <Route path="/risk-management"element={<Riskmanagement/>}/>
-          <Route path="/settings" element={<Settings/>}/>
-          {/* You can add future pages here inside the layout wrapper */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
-
+        {/* Protected Routes inside MainLayout */}
         <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
-          <Route element={<MainLayout />}>
+          <Route element={<MainLayout onLogout={handleLogout} />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/markets" element={<LiveMarkets />} />
             <Route path="/trade" element={<TradeTerminal />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/history" element={<OrderHistory />} />
+            <Route path="/risk-management" element={<Riskmanagement />} />
+            <Route path="/settings" element={<Settings />} />
           </Route>
         </Route>
 
+        {/* Default & Fallback Redirections */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
