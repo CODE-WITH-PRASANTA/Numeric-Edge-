@@ -8,6 +8,7 @@ import {
   History, 
   ShieldCheck, 
   Settings, 
+  MessageSquareQuote,
   LogOut 
 } from "lucide-react";
 import logo from "../../assets/logo.jpeg"; // Adjust path to your src/assets logo
@@ -22,6 +23,7 @@ const Sidebar = ({ isCollapsed, isMobileOpen, closeMobileSidebar }) => {
     { path: "/transactions", name: "Transactions", icon: <ArrowLeftRight size={20} /> },
     { path: "/history", name: "Order History", icon: <History size={20} /> },
     { path: "/risk-management", name: "Risk Management", icon: <ShieldCheck size={20} /> },
+    { path: "/testimonials", name: "Testimonials", icon: <MessageSquareQuote size={20} /> },
     { path: "/settings", name: "Settings", icon: <Settings size={20} /> },
   ];
 

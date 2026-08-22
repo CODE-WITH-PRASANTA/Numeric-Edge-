@@ -12,6 +12,7 @@ import Downloadapp from '../../Components/Downloadapp/Downloadapp'
 import Latestnews from '../../Components/Latestnews/Latestnews'
 import Subscribe from '../../Components/Subscribe/Subscribe'
 import Homefaq from '../../Components/Homefaq/Homefaq'
+import Testimonial from '../../Components/Testimonial/Testimonial'
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
         <Homefaq/>
         <Downloadapp/>
         <Latestnews/>
+        <Testimonial/>
         <Subscribe/>
     </div>
   )

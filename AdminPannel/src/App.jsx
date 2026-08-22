@@ -10,6 +10,7 @@ import OrderHistory from "./Components/OrderHistory/OrderHistory";
 import Riskmanagement from "./Components/Riskmanagement/Riskmanagement";
 import Settings from "./Components/Settings/Settings";
 import Loginform from "./Components/Loginform/Loginform";
+import Testimonial from "./Components/Testimonial/Testimonial";
 
 const ProtectedRoute = ({ isAuthenticated }) => {
   if (!isAuthenticated) {
@@ -59,6 +60,8 @@ const App = () => {
             <Route path="/history" element={<OrderHistory />} />
             <Route path="/risk-management" element={<Riskmanagement />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/testimonials" element={<Testimonial/>}/>
+
           </Route>
         </Route>
 
